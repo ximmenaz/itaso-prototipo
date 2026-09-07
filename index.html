@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prototipo funcional ITASO-MX: claridad para decidir desde tu realidad.">
+  <title>ITASO-MX | Prototipo funcional</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="brand" href="#/inicio" aria-label="ITASO-MX, ir al inicio"><span class="brand-mark">I</span> ITASO-MX</a>
+    <nav id="global-nav" aria-label="Navegación principal"></nav>
+  </header>
+
+  <main id="app" tabindex="-1" aria-live="polite"></main>
+
+  <button id="audience-trigger" class="audience-trigger" type="button">
+    <span aria-hidden="true">↗</span> ¿Quién está usando la página?
+  </button>
+
+  <div id="audience-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="audience-title">
+      <button class="icon-button modal-close" type="button" data-close-modal aria-label="Cerrar">×</button>
+      <p class="eyebrow">Elige tu experiencia</p>
+      <h2 id="audience-title">¿Quién está usando la página?</h2>
+      <p class="muted">Puedes cambiar de perfil en cualquier momento.</p>
+      <div class="audience-grid">
+        <article class="choice-card">
+          <span class="placeholder mini" aria-hidden="true">[PERSONAJE]</span>
+          <h3>Niñas, niños y adolescentes</h3>
+          <p>Aprende, juega y avanza a tu ritmo.</p>
+          <button class="button primary" data-profile="nna" type="button">Entrar</button>
+        </article>
+        <article class="choice-card">
+          <span class="placeholder mini" aria-hidden="true">[IMAGEN]</span>
+          <h3>Cuidadores</h3>
+          <p>Compara opciones y encuentra criterios útiles.</p>
+          <button class="button primary" data-profile="caregiver" type="button">Continuar</button>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast-region" class="toast-region" aria-live="assertive" aria-atomic="true"></div>
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
