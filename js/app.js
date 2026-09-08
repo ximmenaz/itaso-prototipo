@@ -4,13 +4,12 @@
   const modal = document.querySelector('#audience-modal');
   let lastFocus = null;
   let audioContext = null;
-  const avatarDefaults = { body: 'round', color: 'green', eyes: 'round', expression: 'happy', accessory: 'none' };
+  const avatarDefaults = { body: 'tomato', color: 'red', expression: 'happy', accessory: 'none' };
   const avatarOptions = {
-    body: [['round','Redonda'],['oval','Ovalada'],['square','Cuadrada suave'],['blob','Irregular']],
+    body: [['tomato','Redonda'],['squat','Achatada'],['capsule','Cápsula'],['organic','Orgánica']],
     color: [['green','Verde'],['blue','Azul'],['yellow','Amarillo'],['red','Rojo'],['orange','Naranja']],
-    eyes: [['round','Grandes'],['small','Pequeños'],['sparkle','Brillantes'],['wink','Guiño']],
-    expression: [['happy','Alegre'],['calm','Tranquila'],['curious','Curiosa'],['surprised','Sorprendida']],
-    accessory: [['none','Ninguno'],['chef','Gorro de chef'],['glasses','Lentes'],['sunglasses','Lentes de sol'],['headphones','Audífonos'],['cap','Gorra'],['crown','Corona'],['bow','Moño'],['sportband','Banda deportiva']]
+    expression: [['happy','Feliz'],['relaxed','Relajada'],['surprised','Sorprendida'],['excited','Emocionada'],['serious','Seria'],['angry','Enojada'],['sleepy','Dormida'],['wink','Guiñando'],['worried','Preocupada'],['look-left','Mira a la izquierda'],['laugh','Risa'],['bored','Aburrida']],
+    accessory: [['none','Ninguno'],['sunglasses','Lentes de sol'],['headphones','Audífonos'],['hat','Gorro']]
   };
   let avatarState = { ...avatarDefaults };
   let visitNnaProfile = null;
@@ -109,7 +108,7 @@
         <section class="avatar-controls" aria-labelledby="editor-title">
           <p class="eyebrow">Personalización</p><h2 id="editor-title">Hazlo a tu manera</h2>
           <div class="avatar-tabs" role="tablist" aria-label="Categorías de personalización">
-            ${[['body','Forma'],['color','Color'],['eyes','Ojos'],['expression','Expresión'],['accessory','Accesorios']].map(([key,label],i) => `<button class="avatar-tab" type="button" role="tab" aria-selected="${i === 0}" data-avatar-category="${key}">${label}</button>`).join('')}
+            ${[['body','Forma'],['expression','Expresión'],['accessory','Accesorios'],['color','Color']].map(([key,label],i) => `<button class="avatar-tab" type="button" role="tab" aria-selected="${i === 0}" data-avatar-category="${key}">${label}</button>`).join('')}
           </div>
           <div class="avatar-option-panels">
             ${Object.entries(avatarOptions).map(([key,items],i) => `<div class="avatar-options ${key === 'color' ? 'color-options' : ''}" data-avatar-panel="${key}" ${i ? 'hidden' : ''}>${items.map(([value,label]) => `<button class="avatar-option" type="button" data-avatar-option="${key}" data-value="${value}" aria-pressed="${avatarState[key] === value}">${key === 'color' ? `<span class="color-swatch swatch-${value}" aria-hidden="true"></span>` : `<span class="option-symbol" aria-hidden="true">${avatarSymbol(key,value)}</span>`}<span>${label}</span></button>`).join('')}</div>`).join('')}
@@ -126,26 +125,40 @@
   }
 
   function avatarSymbol(category, value) {
-    const symbols = { body: {round:'●',oval:'⬭',square:'▢',blob:'◆'}, eyes: {round:'● ●',small:'· ·',sparkle:'✦ ✦',wink:'● ⌒'}, expression: {happy:'⌣',calm:'—',curious:'⌁',surprised:'○'}, accessory: {none:'—',chef:'♨',glasses:'◉',sunglasses:'▰',headphones:'◖◗',cap:'⌒',crown:'♛',bow:'⋈',sportband:'═'} };
+    const symbols = { body: {tomato:'●',squat:'▬',capsule:'▯',organic:'◆'}, expression: {happy:'⌣',relaxed:'◡',surprised:'○',excited:'✦',serious:'—',angry:'⌢',sleepy:'ᴗ',wink:'◉⌒',worried:'︵', 'look-left':'←',laugh:'D',bored:'¬'}, accessory: {none:'—',sunglasses:'▰',headphones:'◖◗',hat:'⌒'} };
     return symbols[category]?.[value] || '●';
   }
 
   function avatarMarkup(state) {
-    const bodyShapes = { round: '<circle cx="150" cy="154" r="88"/>', oval: '<ellipse cx="150" cy="154" rx="76" ry="101"/>', square: '<rect x="65" y="67" width="170" height="174" rx="38"/>', blob: '<path d="M150 60c49 0 91 34 91 83 0 30-12 42-19 67-9 31-36 47-72 47-46 0-88-20-88-69 0-24-9-35 2-65 13-38 49-63 86-63Z"/>' };
-    const eyes = { round: '<circle cx="118" cy="139" r="14"/><circle cx="182" cy="139" r="14"/><circle class="eye-glint" cx="113" cy="134" r="4"/><circle class="eye-glint" cx="177" cy="134" r="4"/>', small: '<circle cx="120" cy="142" r="6"/><circle cx="180" cy="142" r="6"/>', sparkle: '<path d="m118 124 5 11 11 5-11 5-5 11-5-11-11-5 11-5Zm64 0 5 11 11 5-11 5-5 11-5-11-11-5 11-5Z"/>', wink: '<circle cx="119" cy="140" r="11"/><path d="M169 143q12-15 24 0" fill="none" stroke-width="8" stroke-linecap="round"/>' };
-    const mouths = { happy: '<path d="M126 174q24 25 48 0"/>', calm: '<path d="M130 181h40"/>', curious: '<path d="M128 180q15-14 29 0t21 0"/>', surprised: '<circle cx="150" cy="180" r="12"/>' };
+    const bodyShapes = {
+      tomato: '<ellipse cx="150" cy="164" rx="92" ry="79"/>',
+      squat: '<rect x="51" y="106" width="198" height="121" rx="60"/>',
+      capsule: '<rect x="84" y="64" width="132" height="201" rx="65"/>',
+      organic: '<path d="M150 76c52-6  96 30 91 87-3 35-14 70-48 83-39 15-93 7-119-28-24-32-20-85 7-113 18-18 42-26 69-29Z"/>'
+    };
+    const openEyes = '<ellipse class="eye-white" cx="121" cy="145" rx="20" ry="25"/><ellipse class="eye-white" cx="179" cy="145" rx="20" ry="25"/><circle cx="127" cy="145" r="9"/><circle cx="185" cy="145" r="9"/>';
+    const faces = {
+      happy: `${openEyes}<path class="face-line" d="M127 181q23 22 46 0"/>`,
+      relaxed: '<path class="face-line" d="M103 145q18-24 36 0M161 145q18-24 36 0M130 183q20 15 40 0"/>',
+      surprised: `${openEyes}<circle class="face-line" cx="150" cy="188" r="13"/>`,
+      excited: '<path d="m120 124 6 13 14 6-14 6-6 14-6-14-14-6 14-6Zm60 0 6 13 14 6-14 6-6 14-6-14-14-6 14-6Z"/><path class="face-line" d="M126 181q24 30 48 0"/>',
+      serious: `${openEyes}<path class="face-line" d="M130 187h40"/>`,
+      angry: '<path class="face-line" d="m102 130 35 13m61-13-35 13M128 194q22-22 44 0"/><circle cx="121" cy="149" r="8"/><circle cx="179" cy="149" r="8"/>',
+      sleepy: '<path class="face-line" d="M102 148q18 17 36 0m24 0q18 17 36 0M138 188q12 8 24 0"/>',
+      wink: '<ellipse class="eye-white" cx="120" cy="145" rx="20" ry="25"/><circle cx="126" cy="145" r="9"/><path class="face-line" d="M162 148q18-22 36 0M132 186q18 17 36 0"/>',
+      worried: `${openEyes}<path class="face-line" d="M128 198q22-23 44 0"/>`,
+      'look-left': '<ellipse class="eye-white" cx="121" cy="145" rx="20" ry="25"/><ellipse class="eye-white" cx="179" cy="145" rx="20" ry="25"/><circle cx="113" cy="145" r="9"/><circle cx="171" cy="145" r="9"/><path class="face-line" d="M134 187q16 13 32 0"/>',
+      laugh: '<path class="face-line" d="M102 145q18-21 36 0m24 0q18-21 36 0"/><path d="M122 176q28 39 56 0Z"/>',
+      bored: '<path class="face-line" d="M101 139h38m22 0h38M132 191q18-9 36 0"/><circle cx="121" cy="148" r="7"/><circle cx="179" cy="148" r="7"/>'
+    };
     const accessories = {
       none: '',
-      chef: '<path d="M97 91q-20-26 6-40 12-25 37-10 24-22 43 1 28-7 31 20 19 17-4 34Z"/><rect x="99" y="86" width="112" height="25" rx="8"/>',
-      glasses: '<g class="outline-only"><circle cx="118" cy="140" r="24"/><circle cx="182" cy="140" r="24"/><path d="M142 140h16"/></g>',
       sunglasses: '<g><rect x="91" y="121" width="52" height="34" rx="12"/><rect x="157" y="121" width="52" height="34" rx="12"/><path d="M143 135h14"/></g>',
       headphones: '<g class="outline-only"><path d="M81 144q0-75 69-75t69 75"/><rect x="69" y="132" width="27" height="58" rx="12"/><rect x="204" y="132" width="27" height="58" rx="12"/></g>',
-      cap: '<path d="M83 105q17-57 82-45 39 7 52 45Z"/><path d="M168 102q54-2 65 16-43 8-72-2Z"/>',
-      crown: '<path d="m96 101 6-54 34 29 18-42 22 41 31-31 2 57Z"/>',
-      bow: '<path d="M217 109q34-23 35 12-2 34-35 12l-12-12Zm-12 12-12-12q-34-23-35 12 2 34 35 12Z"/>',
-      sportband: '<path class="outline-only" d="M82 111q68-38 136 0"/><path d="M83 102q67-31 134 0l-5 19q-62-26-124 0Z"/>'
+      hat: '<path d="M82 104q17-58 83-46 39 7 52 46Z"/><path d="M168 101q54-2 65 17-43 8-72-2Z"/>'
     };
-    return `<svg class="avatar-svg color-${state.color}" viewBox="0 0 300 330" aria-hidden="true"><g class="avatar-limbs"><path d="M82 187Q38 196 37 235M218 187q44 9 45 48M111 235l-12 67M189 235l12 67"/><circle cx="36" cy="240" r="8"/><circle cx="264" cy="240" r="8"/><path d="M83 307h31M186 307h31"/></g><g class="avatar-body body-${state.body}">${bodyShapes[state.body]}</g><g class="avatar-eyes eyes-${state.eyes}">${eyes[state.eyes]}</g><g class="avatar-mouth expression-${state.expression}">${mouths[state.expression]}</g><g class="avatar-accessory accessory-${state.accessory}">${accessories[state.accessory]}</g></svg>`;
+    const leaves = '<g class="avatar-leaves"><path d="M151 91q-7-38 10-59 13 28 4 55 28-29 53-18-17 29-52 32 4 1 7 4-29 12-51-2-31 5-48-16 25-18 59 3-11-31 5-48 23 16 13 49Z"/></g>';
+    return `<svg class="avatar-svg color-${state.color}" viewBox="0 0 300 330" aria-hidden="true"><g class="avatar-limbs"><path d="M82 187Q38 196 37 235M218 187q44 9 45 48M111 235l-12 67M189 235l12 67"/><circle cx="36" cy="240" r="8"/><circle cx="264" cy="240" r="8"/><path d="M83 307h31M186 307h31"/></g><g class="avatar-body body-${state.body}">${bodyShapes[state.body]}</g>${leaves}<g class="avatar-face expression-${state.expression}">${faces[state.expression]}</g><g class="avatar-accessory accessory-${state.accessory}">${accessories[state.accessory]}</g></svg>`;
   }
 
   function updateAvatarPreview() {
