@@ -4,6 +4,15 @@
   const modal = document.querySelector('#audience-modal');
   let lastFocus = null;
   let audioContext = null;
+  const avatarDefaults = { body: 'round', color: 'green', eyes: 'round', expression: 'happy', accessory: 'none' };
+  const avatarOptions = {
+    body: [['round','Redonda'],['oval','Ovalada'],['square','Cuadrada suave'],['blob','Irregular']],
+    color: [['green','Verde'],['blue','Azul'],['yellow','Amarillo'],['red','Rojo'],['orange','Naranja']],
+    eyes: [['round','Grandes'],['small','Pequeños'],['sparkle','Brillantes'],['wink','Guiño']],
+    expression: [['happy','Alegre'],['calm','Tranquila'],['curious','Curiosa'],['surprised','Sorprendida']],
+    accessory: [['none','Ninguno'],['chef','Gorro de chef'],['glasses','Lentes'],['sunglasses','Lentes de sol'],['headphones','Audífonos'],['cap','Gorra'],['crown','Corona'],['bow','Moño'],['sportband','Banda deportiva']]
+  };
+  let avatarState = { ...avatarDefaults };
 
   const esc = value => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const page = (content, shell = '') => `<div class="page ${shell}">${content}</div>`;
@@ -79,15 +88,70 @@
   }
 
   function personalization() {
+    const saved = Store.get('nnaProfile');
+    const previousAvatar = saved?.avatar || {};
+    avatarState = Object.fromEntries(Object.keys(avatarDefaults).map(key => [key, previousAvatar[key] || avatarDefaults[key]]));
+    const savedAge = saved?.ageGroup || '';
     render(`${head('Personalización', 'Crea tu personaje', 'Elige opciones que te representen. Puedes cambiarlas después.')}
-      <section class="section compact"><form id="profile-form" class="narrow">
-        <div class="progress" aria-label="Progreso de personalización"><span style="width:25%"></span></div>
-        <div class="form-group"><span class="form-label">1. Escoge un personaje</span><div class="option-grid" data-single="character">${[1,2,3,4].map(n => `<button class="option" type="button" data-value="personaje-${n}" aria-pressed="false">[PERSONAJE ${n}]</button>`).join('')}</div></div>
-        <div class="form-group"><label for="character-name">2. Nombre del personaje</label><input id="character-name" name="name" type="text" maxlength="24" required placeholder="Escribe un nombre"></div>
-        <div class="form-group"><span class="form-label">3. Color / estilo</span><div class="option-grid" data-single="style">${['Verde','Morado','Naranja','Azul'].map(x => `<button class="option" type="button" data-value="${x.toLowerCase()}" aria-pressed="false">${x}</button>`).join('')}</div></div>
-        <div class="form-group"><span class="form-label">4. Edad</span><div class="option-grid" data-single="ageGroup"><button class="option" type="button" data-value="8–12" aria-pressed="false">8–12 años</button><button class="option" type="button" data-value="13–17" aria-pressed="false">13–17 años</button></div></div>
-        <button class="button primary" type="submit">Crear personaje</button>
+      <section class="section compact"><form id="profile-form" class="container avatar-editor">
+        <section class="avatar-stage" aria-labelledby="preview-title">
+          <div class="avatar-stage-head"><div><p class="eyebrow">Vista previa</p><h2 id="preview-title">Tu personaje</h2></div><span class="live-badge">● En tiempo real</span></div>
+          <div id="avatar-preview" class="avatar-preview" role="img" aria-label="Vista previa del personaje personalizado">${avatarMarkup(avatarState)}</div>
+          <p class="avatar-hint">Cada elección cambia una capa sin modificar las demás.</p>
+        </section>
+        <section class="avatar-controls" aria-labelledby="editor-title">
+          <p class="eyebrow">Personalización</p><h2 id="editor-title">Hazlo a tu manera</h2>
+          <div class="avatar-tabs" role="tablist" aria-label="Categorías de personalización">
+            ${[['body','Forma'],['color','Color'],['eyes','Ojos'],['expression','Expresión'],['accessory','Accesorios']].map(([key,label],i) => `<button class="avatar-tab" type="button" role="tab" aria-selected="${i === 0}" data-avatar-category="${key}">${label}</button>`).join('')}
+          </div>
+          <div class="avatar-option-panels">
+            ${Object.entries(avatarOptions).map(([key,items],i) => `<div class="avatar-options ${key === 'color' ? 'color-options' : ''}" data-avatar-panel="${key}" ${i ? 'hidden' : ''}>${items.map(([value,label]) => `<button class="avatar-option" type="button" data-avatar-option="${key}" data-value="${value}" aria-pressed="${avatarState[key] === value}">${key === 'color' ? `<span class="color-swatch swatch-${value}" aria-hidden="true"></span>` : `<span class="option-symbol" aria-hidden="true">${avatarSymbol(key,value)}</span>`}<span>${label}</span></button>`).join('')}</div>`).join('')}
+          </div>
+          <div class="avatar-details">
+            <div class="form-group"><label for="character-name">Nombre del personaje</label><input id="character-name" name="name" type="text" maxlength="24" required value="${esc(saved?.name || '')}" placeholder="Escribe un nombre" autocomplete="off"></div>
+            <fieldset class="form-group"><legend class="form-label">Edad</legend><div class="age-options"><button class="option" type="button" data-profile-age="8–12" aria-pressed="${savedAge === '8–12'}">8–12 años</button><button class="option" type="button" data-profile-age="13–17" aria-pressed="${savedAge === '13–17'}">13–17 años</button></div></fieldset>
+            <p id="profile-requirements" class="requirements">Escribe un nombre y elige un rango de edad para continuar.</p>
+            <button id="create-character" class="button primary create-character" type="submit" disabled>CREAR PERSONAJE <span aria-hidden="true">→</span></button>
+          </div>
+        </section>
       </form></section>`, 'nna-shell');
+    refreshCreateButton();
+  }
+
+  function avatarSymbol(category, value) {
+    const symbols = { body: {round:'●',oval:'⬭',square:'▢',blob:'◆'}, eyes: {round:'● ●',small:'· ·',sparkle:'✦ ✦',wink:'● ⌒'}, expression: {happy:'⌣',calm:'—',curious:'⌁',surprised:'○'}, accessory: {none:'—',chef:'♨',glasses:'◉',sunglasses:'▰',headphones:'◖◗',cap:'⌒',crown:'♛',bow:'⋈',sportband:'═'} };
+    return symbols[category]?.[value] || '●';
+  }
+
+  function avatarMarkup(state) {
+    const bodyShapes = { round: '<circle cx="150" cy="154" r="88"/>', oval: '<ellipse cx="150" cy="154" rx="76" ry="101"/>', square: '<rect x="65" y="67" width="170" height="174" rx="38"/>', blob: '<path d="M150 60c49 0 91 34 91 83 0 30-12 42-19 67-9 31-36 47-72 47-46 0-88-20-88-69 0-24-9-35 2-65 13-38 49-63 86-63Z"/>' };
+    const eyes = { round: '<circle cx="118" cy="139" r="14"/><circle cx="182" cy="139" r="14"/><circle class="eye-glint" cx="113" cy="134" r="4"/><circle class="eye-glint" cx="177" cy="134" r="4"/>', small: '<circle cx="120" cy="142" r="6"/><circle cx="180" cy="142" r="6"/>', sparkle: '<path d="m118 124 5 11 11 5-11 5-5 11-5-11-11-5 11-5Zm64 0 5 11 11 5-11 5-5 11-5-11-11-5 11-5Z"/>', wink: '<circle cx="119" cy="140" r="11"/><path d="M169 143q12-15 24 0" fill="none" stroke-width="8" stroke-linecap="round"/>' };
+    const mouths = { happy: '<path d="M126 174q24 25 48 0"/>', calm: '<path d="M130 181h40"/>', curious: '<path d="M128 180q15-14 29 0t21 0"/>', surprised: '<circle cx="150" cy="180" r="12"/>' };
+    const accessories = {
+      none: '',
+      chef: '<path d="M97 91q-20-26 6-40 12-25 37-10 24-22 43 1 28-7 31 20 19 17-4 34Z"/><rect x="99" y="86" width="112" height="25" rx="8"/>',
+      glasses: '<g class="outline-only"><circle cx="118" cy="140" r="24"/><circle cx="182" cy="140" r="24"/><path d="M142 140h16"/></g>',
+      sunglasses: '<g><rect x="91" y="121" width="52" height="34" rx="12"/><rect x="157" y="121" width="52" height="34" rx="12"/><path d="M143 135h14"/></g>',
+      headphones: '<g class="outline-only"><path d="M81 144q0-75 69-75t69 75"/><rect x="69" y="132" width="27" height="58" rx="12"/><rect x="204" y="132" width="27" height="58" rx="12"/></g>',
+      cap: '<path d="M83 105q17-57 82-45 39 7 52 45Z"/><path d="M168 102q54-2 65 16-43 8-72-2Z"/>',
+      crown: '<path d="m96 101 6-54 34 29 18-42 22 41 31-31 2 57Z"/>',
+      bow: '<path d="M217 109q34-23 35 12-2 34-35 12l-12-12Zm-12 12-12-12q-34-23-35 12 2 34 35 12Z"/>',
+      sportband: '<path class="outline-only" d="M82 111q68-38 136 0"/><path d="M83 102q67-31 134 0l-5 19q-62-26-124 0Z"/>'
+    };
+    return `<svg class="avatar-svg color-${state.color}" viewBox="0 0 300 330" aria-hidden="true"><g class="avatar-limbs"><path d="M82 187Q38 196 37 235M218 187q44 9 45 48M111 235l-12 67M189 235l12 67"/><circle cx="36" cy="240" r="8"/><circle cx="264" cy="240" r="8"/><path d="M83 307h31M186 307h31"/></g><g class="avatar-body body-${state.body}">${bodyShapes[state.body]}</g><g class="avatar-eyes eyes-${state.eyes}">${eyes[state.eyes]}</g><g class="avatar-mouth expression-${state.expression}">${mouths[state.expression]}</g><g class="avatar-accessory accessory-${state.accessory}">${accessories[state.accessory]}</g></svg>`;
+  }
+
+  function updateAvatarPreview() {
+    const preview = document.querySelector('#avatar-preview');
+    if (preview) { preview.innerHTML = avatarMarkup(avatarState); preview.classList.remove('avatar-updated'); void preview.offsetWidth; preview.classList.add('avatar-updated'); }
+  }
+
+  function refreshCreateButton() {
+    const form = document.querySelector('#profile-form'); if (!form) return;
+    const hasName = Boolean(form.name.value.trim());
+    const hasAge = Boolean(form.querySelector('[data-profile-age][aria-pressed="true"]'));
+    const button = form.querySelector('#create-character'); button.disabled = !(hasName && hasAge && avatarState.body);
+    form.querySelector('#profile-requirements').textContent = button.disabled ? 'Escribe un nombre y elige un rango de edad para continuar.' : 'Todo listo. Puedes crear tu personaje.';
   }
 
   function nnaMenu() {
@@ -191,6 +255,25 @@
       single.parentElement.querySelectorAll('.option').forEach(x => x.setAttribute('aria-pressed','false'));
       single.setAttribute('aria-pressed','true'); tone('select');
     }
+    const avatarCategory = event.target.closest('[data-avatar-category]');
+    if (avatarCategory) {
+      const category = avatarCategory.dataset.avatarCategory;
+      document.querySelectorAll('[data-avatar-category]').forEach(tab => tab.setAttribute('aria-selected', String(tab === avatarCategory)));
+      document.querySelectorAll('[data-avatar-panel]').forEach(panel => { panel.hidden = panel.dataset.avatarPanel !== category; });
+      tone('select');
+    }
+    const avatarOption = event.target.closest('[data-avatar-option]');
+    if (avatarOption) {
+      const category = avatarOption.dataset.avatarOption;
+      avatarState[category] = avatarOption.dataset.value;
+      document.querySelectorAll(`[data-avatar-option="${category}"]`).forEach(option => option.setAttribute('aria-pressed', String(option === avatarOption)));
+      updateAvatarPreview(); refreshCreateButton(); tone('select');
+    }
+    const ageOption = event.target.closest('[data-profile-age]');
+    if (ageOption) {
+      document.querySelectorAll('[data-profile-age]').forEach(option => option.setAttribute('aria-pressed', String(option === ageOption)));
+      refreshCreateButton(); tone('select');
+    }
     if (event.target.closest('[data-open-audience]') || event.target.closest('#audience-trigger') || event.target.closest('[data-change-profile]')) openModal();
     if (event.target.closest('[data-close-modal]')) closeModal();
     const profile = event.target.closest('[data-profile]')?.dataset.profile;
@@ -212,12 +295,16 @@
     if (event.target.matches('#recipe-tag, #recipe-age')) drawRecipes();
   });
 
+  document.addEventListener('input', event => {
+    if (event.target.id === 'character-name') refreshCreateButton();
+  });
+
   document.addEventListener('submit', event => {
     event.preventDefault();
     if (event.target.id === 'profile-form') {
-      const chosen = key => event.target.querySelector(`[data-single="${key}"] [aria-pressed="true"]`)?.dataset.value;
-      const profile = { character: chosen('character'), name: event.target.name.value.trim(), style: chosen('style'), ageGroup: chosen('ageGroup') };
-      if (!profile.character || !profile.name || !profile.style || !profile.ageGroup) return toast('Falta una elección', 'Completa personaje, nombre, estilo y edad.', 'click');
+      const ageGroup = event.target.querySelector('[data-profile-age][aria-pressed="true"]')?.dataset.profileAge;
+      const profile = { name: event.target.name.value.trim(), ageGroup, avatar: { ...avatarState } };
+      if (!profile.name || !profile.ageGroup || !profile.avatar.body) return toast('Falta una elección', 'Escribe un nombre y elige un rango de edad.', 'click');
       Store.set('nnaProfile', profile); Store.set('nnaProfileCreated', true); toast('¡Personaje creado!', 'Te llevamos al menú NNA.', 'success'); setTimeout(() => Router.go('/nna/menu'), 700);
     }
     if (event.target.id === 'compare-form') showComparison(event.target);
