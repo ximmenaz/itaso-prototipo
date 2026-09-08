@@ -13,6 +13,13 @@
     accessory: [['none','Ninguno'],['chef','Gorro de chef'],['glasses','Lentes'],['sunglasses','Lentes de sol'],['headphones','Audífonos'],['cap','Gorra'],['crown','Corona'],['bow','Moño'],['sportband','Banda deportiva']]
   };
   let avatarState = { ...avatarDefaults };
+  let visitNnaProfile = null;
+  let visitNnaProfileCreated = false;
+
+  // El perfil NNA vive solamente durante esta carga de la aplicación.
+  // También limpia versiones antiguas que pudieron quedar en localStorage.
+  localStorage.removeItem('nnaProfile');
+  localStorage.removeItem('nnaProfileCreated');
 
   const esc = value => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const page = (content, shell = '') => `<div class="page ${shell}">${content}</div>`;
@@ -83,12 +90,12 @@
   }
 
   function nnaEntry() {
-    if (Store.get('nnaProfileCreated')) { Router.go('/nna/menu'); return; }
-    render(`${head('NNA', '¿Es tu primera vez?', 'Tu respuesta nos ayuda a saber por dónde empezar.')}<section class="section compact"><div class="narrow grid two">${menuCard('Sí, quiero crear mi personaje', 'Personaliza tu experiencia antes de comenzar.', '/nna/personalizacion')}${menuCard('No, quiero entrar', 'Ve directamente al menú de actividades.', '/nna/menu')}</div></section>`, 'nna-shell');
+    if (visitNnaProfileCreated) { Router.go('/nna/menu'); return; }
+    render(`${head('NNA', '¿Es tu primera vez?', 'En cada visita crearás un personaje nuevo para comenzar.')}<section class="section compact"><div class="narrow grid two">${menuCard('Sí, crear mi personaje', 'Personaliza tu experiencia antes de comenzar.', '/nna/personalizacion')}${menuCard('Ahora no', 'Vuelve al inicio y explora la información general.', '/inicio')}</div></section>`, 'nna-shell');
   }
 
   function personalization() {
-    const saved = Store.get('nnaProfile');
+    const saved = visitNnaProfile;
     const previousAvatar = saved?.avatar || {};
     avatarState = Object.fromEntries(Object.keys(avatarDefaults).map(key => [key, previousAvatar[key] || avatarDefaults[key]]));
     const savedAge = saved?.ageGroup || '';
@@ -155,12 +162,14 @@
   }
 
   function nnaMenu() {
-    const profile = Store.get('nnaProfile');
+    if (!requireVisitNnaProfile()) return;
+    const profile = visitNnaProfile;
     render(`${head('Menú NNA', `¿Qué quieres hacer${profile?.name ? `, ${esc(profile.name)}` : ''}?`, 'Elige una actividad. Tú decides por dónde comenzar.')}
       <section class="section compact"><div class="container grid">${menuCard('Recursos', 'Explicaciones breves y visuales.', '/nna/recursos')}${menuCard('Juegos', 'Practica con situaciones cotidianas.', '/nna/juegos')}${menuCard('Misiones educativas', 'Completa un reto paso a paso.', '/nna/misiones')}${menuCard('Mis logros', 'Mira lo que ya aprendiste.', '/nna/logros')}${menuCard('Compartir', 'Crea una tarjeta con tu avance.', '/nna/compartir')}</div></section>`, 'nna-shell');
   }
 
   function nnaSimple(kind) {
+    if (!requireVisitNnaProfile()) return;
     const configs = {
       recursos: ['Recursos', '¿Qué quieres aprender?', ['Etiquetado nutrimental','Hidratación y bebidas azucaradas','Porción visual']],
       juegos: ['Juegos', '¿Qué juego quieres jugar?', ['Arma tu lunch','Elige tu bebida','Crea tu plato']],
@@ -171,11 +180,13 @@
   }
 
   function missions() {
+    if (!requireVisitNnaProfile()) return;
     render(`${head('Misiones educativas', 'Entender los sellos', 'Una misión breve en tres pasos.')}
       <section class="section compact"><div class="narrow"><div class="progress"><span id="mission-progress" style="width:0"></span></div><div id="mission-step" class="card" style="margin-top:20px"><h3>Paso 1 de 3</h3><p>Observa si el producto tiene uno o más sellos frontales.</p><button class="button primary" type="button" data-mission-next="1">Ya lo observé</button></div></div></section>`, 'nna-shell');
   }
 
   function achievements() {
+    if (!requireVisitNnaProfile()) return;
     const list = Store.get('nnaAchievements') || [];
     render(`${head('Mis logros', 'Lo que has conseguido', 'Cada logro representa una actividad completada.')}
       <section class="section compact"><div class="narrow">${list.length ? `<div class="grid two">${list.map(x => `<article class="card"><p class="eyebrow">Logro desbloqueado</p><h3>★ ${esc(x)}</h3></article>`).join('')}</div>` : '<div class="empty"><h3>Todavía no hay logros</h3><p>Completa una misión para desbloquear el primero.</p><a class="button primary" href="#/nna/misiones">Ir a misiones</a></div>'}</div></section>`, 'nna-shell');
@@ -305,7 +316,7 @@
       const ageGroup = event.target.querySelector('[data-profile-age][aria-pressed="true"]')?.dataset.profileAge;
       const profile = { name: event.target.name.value.trim(), ageGroup, avatar: { ...avatarState } };
       if (!profile.name || !profile.ageGroup || !profile.avatar.body) return toast('Falta una elección', 'Escribe un nombre y elige un rango de edad.', 'click');
-      Store.set('nnaProfile', profile); Store.set('nnaProfileCreated', true); toast('¡Personaje creado!', 'Te llevamos al menú NNA.', 'success'); setTimeout(() => Router.go('/nna/menu'), 700);
+      visitNnaProfile = profile; visitNnaProfileCreated = true; toast('¡Personaje creado!', 'Te llevamos al menú NNA.', 'success'); setTimeout(() => Router.go('/nna/menu'), 700);
     }
     if (event.target.id === 'compare-form') showComparison(event.target);
     if (event.target.id === 'decide-form') showDecision(event.target);
@@ -340,6 +351,12 @@
     if (step === 2) { bar.style.width = '67%'; target.innerHTML = '<h3>Paso 3 de 3</h3><p>Compara dos productos usando la misma cantidad.</p><button class="button primary" type="button" data-mission-next="3">Completar misión</button>'; }
     if (step === 3) { bar.style.width = '100%'; const achievements = Store.get('nnaAchievements') || []; if (!achievements.includes('Explorador de etiquetas')) Store.set('nnaAchievements', [...achievements, 'Explorador de etiquetas']); target.innerHTML = '<p class="eyebrow">¡Misión completada!</p><h3>✓ Ya tienes un criterio para comparar</h3><p>Primero iguala la porción; después observa azúcares, sellos e ingredientes.</p><a class="button primary" href="#/nna/logros">Ver mi logro</a>'; toast('Nuevo logro desbloqueado', 'Explorador de etiquetas', 'achievement'); }
     tone(step === 3 ? 'success' : 'click');
+  }
+
+  function requireVisitNnaProfile() {
+    if (visitNnaProfileCreated && visitNnaProfile) return true;
+    Router.go('/nna');
+    return false;
   }
 
   document.addEventListener('keydown', event => {

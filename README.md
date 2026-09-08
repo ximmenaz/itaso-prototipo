@@ -35,4 +35,6 @@ Como alternativa, abre la carpeta en Visual Studio Code, instala la extensión *
 
 ## Datos guardados
 
-El navegador conserva en `localStorage`: `currentProfile`, `nnaProfileCreated`, `nnaProfile`, `nnaAchievements`, `savedRecipes`, `savedActivities` y `soundEnabled`.
+El navegador conserva en `localStorage`: `currentProfile`, `nnaAchievements`, `savedRecipes`, `savedActivities` y `soundEnabled`.
+
+`nnaProfile`, `nnaProfileCreated` y el estado del avatar existen únicamente en memoria durante la visita actual. Al recargar o abrir nuevamente la plataforma, la personalización NNA comienza desde cero.

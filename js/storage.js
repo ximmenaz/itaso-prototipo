@@ -1,8 +1,6 @@
 (function () {
   const defaults = {
     currentProfile: null,
-    nnaProfileCreated: false,
-    nnaProfile: null,
     nnaAchievements: [],
     savedRecipes: [],
     savedActivities: [],
