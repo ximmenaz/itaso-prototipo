@@ -12,24 +12,81 @@
   };
   const icon = name => `<svg class="lp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]}</svg>`;
   const wave = (kind) => kind === 'yellow' ? `<svg class="lp-wave lp-wave--yellow" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h1440v43c-80-68-130-24-210-6-142 40-235 20-340-20-145-55-196 20-300 29C425 84 334 7 215 3 115-9 54 8 0 33Z"/></svg>` : `<svg class="lp-wave lp-wave--${kind}" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 28C220-16 378 70 606 38c250-37 432 37 630-9 95-23 159-16 204 1v70H0Z"/></svg>`;
-  const teamCard = (name,description,image,kind,cta,action) => `<article class="lp-card"><img class="lp-card-photo" src="assets/identity/itaso_landing_editable-${image}.png" alt="" loading="lazy"><div class="lp-card-content"><span class="lp-card-icon lp-tone-${kind}">${icon(kind)}</span><h3>${name}</h3><p>${description}</p><button class="lp-button lp-button--text lp-tone-${kind}" type="button" ${action}>${cta}${icon('arrow')}</button></div></article>`;
+  const teamCard = (name,description,image,kind,cta,modal) => `<article class="lp-card lp-card--open" role="button" tabindex="0" aria-label="${name} · ${cta}" data-landing-modal="${modal}"><img class="lp-card-photo" src="assets/identity/itaso_landing_editable-${image}.png" alt="" loading="lazy"><div class="lp-card-content lp-tone-${kind}"><span class="lp-card-icon">${icon(kind)}</span><h3>${name}</h3><p>${description}</p><span class="lp-button lp-button--text" aria-hidden="true">${cta}${icon('arrow')}</span></div></article>`;
   function navigation() { return `<button type="button" class="lp-menu-toggle" data-lp-menu aria-controls="lp-nav-links" aria-expanded="false">Menú <span aria-hidden="true">☰</span></button><div id="lp-nav-links" class="lp-nav-links"><a href="#quienes" data-lp-scroll="quienes">Quiénes somos</a><a href="#equipo" data-lp-scroll="equipo">Equipo</a><a href="#mision" data-lp-scroll="mision">Misión y visión</a><a href="#fuentes" data-lp-scroll="fuentes">Fuentes</a><button class="lp-search-toggle" type="button" data-lp-search aria-label="Buscar en esta página">${icon('search')}</button><a class="lp-button lp-button--primary" href="#quienes" data-lp-scroll="quienes">Conócenos</a></div>`; }
   function markup() { return `
-    <section class="lp-hero lp-container" aria-labelledby="lp-title"><div class="lp-hero-copy"><p class="lp-eyebrow">Instituto de Trastornos y Alimentación Saludable</p><h1 id="lp-title">Claridad para<br>decidir desde<br>tu realidad.</h1><p class="lp-lead">Información comprensible y herramientas prácticas para acompañar decisiones cotidianas sobre alimentación, bienestar y movimiento.</p><div class="lp-actions"><a class="lp-button lp-button--orange" href="#quienes" data-lp-scroll="quienes">Conócenos ${icon('arrow')}</a><button class="lp-button lp-button--secondary" type="button" data-open-audience>Elegir experiencia</button></div></div><div class="lp-hero-media"><img src="assets/identity/itaso_landing_editable-1.png" alt="Una madre abraza a su hija" fetchpriority="high" width="526" height="521"></div></section>
+    <section class="lp-hero lp-container" aria-labelledby="lp-title"><div class="lp-hero-copy"><p class="lp-eyebrow">Instituto de Trastornos y Alimentación Saludable</p><h1 id="lp-title">Claridad para<br>decidir desde<br>tu realidad.</h1><p class="lp-lead">Información basada en evidencia y herramientas prácticas para acompañar decisiones cotidianas sobre alimentación, movimiento y bienestar.</p><div class="lp-actions"><a class="lp-button lp-button--primary" href="#/cuidadores">Explorar herramientas para cuidadores ${icon('arrow')}</a><a class="lp-button lp-button--secondary" href="#quienes" data-lp-scroll="quienes">Conócenos</a></div></div><div class="lp-hero-media"><img src="assets/identity/itaso_landing_editable-1.png" alt="Una madre abraza a su hija" fetchpriority="high" width="526" height="521"></div></section>
     <div class="lp-blue-band" aria-hidden="true"><svg class="lp-wave lp-wave--ribbon" viewBox="0 0 1440 116" preserveAspectRatio="none"><path d="M0 15C220-29 378 58 606 26c250-37 432 37 630-9 95-23 159-16 204 1v88c-50-24-112-24-204-1-198 46-380-28-630 9C378 146 220 59 0 103Z"/></svg></div>
     <section id="quienes" class="lp-about"><div><p class="lp-eyebrow">Quiénes somos</p><h2>Ciencia que se puede<br>usar en la vida real</h2></div><p>ITASO-MX transforma evidencia científica en criterios claros para que niñas, niños, adolescentes y sus cuidadores puedan comparar alternativas y tomar decisiones posibles, sin juicios ni respuestas únicas.</p></section>
-    <section id="equipo" class="lp-team">${wave('orange')}<div class="lp-team-surface"><p class="lp-eyebrow">Equipo</p><h2>Una mirada integral</h2><div class="lp-team-grid">${teamCard('Nutrición','Contenido basado en evidencia y lenguaje cotidiano.',2,'apple','Explorar','data-lp-info="nutrition"')}${teamCard('Psicología','Orientación respetuosa, libre de estigma.',3,'brain','Conoce al equipo','data-lp-info="team"')}${teamCard('Educación','Herramientas útiles para aprender haciendo.',4,'book','Explorar','data-open-audience')}</div></div>${wave('orange-bottom')}</section>
+    <section id="equipo" class="lp-team">${wave('orange')}<div class="lp-team-surface"><p class="lp-eyebrow">Equipo</p><h2>Una mirada integral</h2><div class="lp-team-grid">${teamCard('Nutrición','Información basada en evidencia para comprender y comparar situaciones cotidianas relacionadas con la alimentación.',2,'apple','Consultar fuentes','nutrition')}${teamCard('Psicología','Una mirada respetuosa sobre bienestar, acompañamiento y experiencias libres de estigma.',3,'brain','Conoce al equipo','team')}${teamCard('Educación','Herramientas y experiencias para comprender, explorar y aplicar información basada en evidencia.',4,'book','Conoce cómo aprendemos','education')}</div></div>${wave('orange-bottom')}</section>
     <section id="mision" class="lp-purpose lp-container"><article class="lp-purpose-card"><span class="lp-purpose-icon">${icon('leaf')}</span><div><p class="lp-eyebrow">Misión</p><h2>Acompañar</h2><p>Convertir información compleja en decisiones comprensibles y aplicables.</p></div></article><article class="lp-purpose-card lp-purpose-card--vision"><span class="lp-purpose-icon">${icon('target')}</span><div><p class="lp-eyebrow">Visión</p><h2>Bienestar posible</h2><p>Entornos donde el cuidado se construya con autonomía, criterio y empatía.</p></div></article></section>
-    <section id="fuentes" class="lp-sources">${wave('yellow')}<div class="lp-container lp-sources-content"><div><p class="lp-eyebrow">Fuentes</p><h2>Transparencia científica</h2><p>Este sitio reserva un espacio para referencias, notas<br class="lp-desktop-break"> metodológicas y actualización de contenidos.</p></div><button class="lp-button lp-button--source" type="button" data-lp-info="sources">${icon('file')} Ver todas las fuentes</button></div></section>
+    <section id="fuentes" class="lp-sources">${wave('yellow')}<div class="lp-container lp-sources-content"><div><p class="lp-eyebrow">Fuentes</p><h2>Transparencia científica</h2><p>Este sitio reserva un espacio para referencias, notas<br class="lp-desktop-break"> metodológicas y actualización de contenidos.</p></div><button class="lp-button lp-button--source" type="button" data-landing-modal="nutrition">${icon('file')} Ver todas las fuentes</button></div></section>
     <footer class="lp-footer lp-container"><div><a href="#/inicio" aria-label="ITASO-MX, inicio"><img src="assets/identity/logo-color.svg" alt="ITASO-MX" width="260" height="95"></a><p>© ITASO-MX — prototipo</p></div><nav aria-label="Información legal"><button type="button" data-lp-info="privacy">Privacidad</button><button type="button" data-lp-info="terms">Términos</button><a href="mailto:contacto@itaso.mx">Contacto</a></nav></footer>
     <dialog id="lp-dialog" class="lp-dialog" aria-labelledby="lp-dialog-title"><button class="lp-dialog-close" type="button" data-lp-close aria-label="Cerrar">×</button><h2 id="lp-dialog-title"></h2><div id="lp-dialog-content"></div></dialog>`; }
   const info = {
-    nutrition:['Nutrición','Contenido basado en evidencia y lenguaje cotidiano. Puedes explorar los temas disponibles en la experiencia para cuidadores.','<a class="lp-button lp-button--primary" href="#/cuidadores/alimentacion">Ver temas de alimentación</a>'],
-    team:['Una mirada integral','El prototipo reúne las áreas de nutrición, psicología y educación. Los perfiles individuales del equipo están pendientes de integración.',''],
-    sources:['Fuentes científicas','Las referencias, notas metodológicas y fechas de actualización están pendientes de integración en este prototipo.',''],
     privacy:['Privacidad','La política de privacidad está pendiente de publicación. Esta vista es un prototipo.',''],
     terms:['Términos','Los términos de uso están pendientes de publicación. Esta vista es un prototipo.','']
   };
+  const LANDING_INFO = {
+    nutrition: {
+      accent: 'orange',
+      kicker: 'Nutrición',
+      title: 'Información respaldada por evidencia',
+      description: 'Fuentes oficiales y científicas que respaldan los criterios y materiales de ITASO.',
+      intro: 'Los contenidos de ITASO se construyen a partir de fuentes oficiales y científicas que ayudan a transformar información especializada en criterios claros para la vida cotidiana.',
+      render: 'nutrition',
+      sections: [
+        { title:'Porciones y etiquetado', text:'Estas fuentes respaldan los criterios utilizados para comprender porciones, cantidades, información nutrimental y etiquetado frontal.', sources:[
+          {institution:'Diario Oficial de la Federación', title:'NOM-051-SCFI/SSA1-2010', url:'https://www.dof.gob.mx/2020/SEECO/NOM_051.pdf'},
+          {institution:'Secretaría de Salud', title:'Etiquetado frontal de alimentos y bebidas', url:'https://www.gob.mx/promosalud/acciones-y-programas/etiquetado-de-alimentos'},
+          {institution:'Instituto Mexicano del Seguro Social', title:'Nutrición', url:'https://www.imss.gob.mx/salud-en-linea/nutricion'}
+        ]},
+        { title:'Grupos de alimentos', text:'Referencias utilizadas para comprender variedad, combinación y los grupos del Plato del Bien Comer Saludable y Sostenible.', sources:[
+          {institution:'Instituto Mexicano del Seguro Social', title:'Plato del Bien Comer Saludable y Sostenible', url:'https://www.imss.gob.mx/salud-en-linea/platobiencomer'},
+          {institution:'Secretaría de Salud · Instituto Nacional de Salud Pública · UNICEF', title:'Guías Alimentarias Saludables y Sostenibles para la Población Mexicana 2025', url:'https://www.gob.mx/salud/sinsamac/documentos/guias-alimentarias-saludables-y-sostenibles-para-la-poblacion-mexicana-2025'}
+        ]},
+        { title:'Hidratación y bebidas', text:'Fuentes utilizadas para abordar hidratación, bebidas azucaradas y criterios para comparar bebidas.', sources:[
+          {institution:'Organización Mundial de la Salud', title:'Alimentación saludable / Healthy diet', url:'https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet'},
+          {institution:'Secretaría de Salud · INSP · UNICEF', title:'Guías Alimentarias Saludables y Sostenibles para la Población Mexicana 2025', url:'https://www.gob.mx/salud/sinsamac/documentos/guias-alimentarias-saludables-y-sostenibles-para-la-poblacion-mexicana-2025'},
+          {institution:'Secretaría de Salud', title:'Etiquetado frontal de alimentos y bebidas', url:'https://www.gob.mx/promosalud/acciones-y-programas/etiquetado-de-alimentos'}
+        ]},
+        { title:'Hambre y saciedad', text:'Referencias utilizadas para abordar señales de hambre y saciedad y acompañamiento respetuoso durante las comidas.', sources:[
+          {institution:'American Academy of Pediatrics · HealthyChildren.org', title:'Making Sure Your Child Is Eating Enough', url:'https://www.healthychildren.org/spanish/healthy-living/nutrition/paginas/making-sure-your-child-is-eating-enough.aspx'},
+          {institution:'Centers for Disease Control and Prevention', title:'Signs Your Child Is Hungry or Full', url:'https://www.cdc.gov/infant-toddler-nutrition/mealtime/signs-your-child-is-hungry-or-full.html'}
+        ]}
+      ]
+    },
+    team: {
+      accent: 'blue',
+      kicker: 'Psicología',
+      title: 'Una mirada interdisciplinaria',
+      description: 'Un proyecto desarrollado desde distintas disciplinas para comprender la salud y el bienestar de niñas, niños y adolescentes.',
+      intro: 'ITASO-MX es un proyecto de la Vicerrectoría de Investigación de la Universidad La Salle México desarrollado desde una perspectiva interdisciplinaria, participativa y basada en evidencia.',
+      intro2: 'Distintas áreas colaboran para comprender la salud y el bienestar de niñas, niños y adolescentes desde una mirada integral.',
+      render: 'team',
+      cards: [
+        { tag:'Área', title:'Nutrición', text:'Traduce evidencia sobre alimentación, hidratación y otros factores relacionados con la salud en información que pueda utilizarse en decisiones cotidianas.' },
+        { tag:'Área', title:'Psicología', text:'Aporta una mirada respetuosa sobre comportamiento, bienestar, acompañamiento y relación con los alimentos, promoviendo experiencias libres de estigma.' },
+        { tag:'Área', title:'Educación', text:'Transforma información especializada en herramientas y experiencias que facilitan comprender, explorar y aplicar lo aprendido en contextos familiares y escolares.' }
+      ],
+      closing: { title:'Trabajo en conjunto', text:'El valor de ITASO no está en una sola disciplina, sino en la integración de distintas perspectivas para construir recursos claros, accesibles y útiles para las familias.' }
+    },
+    education: {
+      accent: 'green',
+      kicker: 'Educación',
+      title: 'De la evidencia a la vida cotidiana',
+      description: 'Principios que guían la construcción de los materiales de ITASO.',
+      intro: 'ITASO busca transformar evidencia científica en materiales claros, comprensibles y útiles para las personas cuidadoras y sus familias.',
+      render: 'education',
+      principles: [
+        { title:'Información clara', text:'Los contenidos traducen conceptos especializados a un lenguaje accesible sin perder el respaldo de las fuentes que los sustentan.' },
+        { title:'Aprender haciendo', text:'Las herramientas buscan que las personas puedan seleccionar, comparar, explorar, registrar o responder para comprender mejor una situación y reconocer criterios para decidir.', chips:['Seleccionar','Comparar','Explorar','Responder'] },
+        { title:'Aprendizaje sin estigma', text:'ITASO promueve una comunicación participativa, respetuosa y libre de estigma, centrada en fortalecer capacidades y no en culpabilizar a las familias.' }
+      ],
+      closing: { title:'Para qué', text:'No se trata solamente de presentar información, sino de ayudar a que pueda ser utilizada en decisiones reales.', cta:'Explorar herramientas para cuidadores', href:'#/cuidadores' }
+    }
+  };
+  window.ITASO_LANDING_INFO = LANDING_INFO;
   function openInfo(title,html) { const dialog=document.querySelector('#lp-dialog'); if(!dialog) return; document.querySelector('#lp-dialog-title').textContent=title; document.querySelector('#lp-dialog-content').innerHTML=html; dialog.showModal(); }
   document.addEventListener('click',event=>{
     if (!document.querySelector('.landing-page')) return;
