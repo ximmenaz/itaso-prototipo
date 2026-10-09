@@ -6,7 +6,7 @@
 .cg-copy h1 { font-size:var(--type-page-title); line-height:.96; letter-spacing:-.055em; margin:18px 0 30px; }
 .cg-lead { color:var(--text-secondary); font-size:var(--type-lead); font-weight:560; margin:0; }
 .cg-lead br { display:none; }
-.cg-photo { display:grid; place-items:center; text-align:center; width:100%; aspect-ratio:1; padding:32px; border:1px solid var(--line); border-radius:var(--radius-section); background:var(--paper); color:var(--text-subtle); font-size:22px; font-weight:700; }
+.cg-photo { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:cover; object-position:center; border:1px solid var(--line); border-radius:var(--radius-section); background:var(--paper); }
 .cg-wave { display:block; width:100%; height:100px; margin-top:-48px; fill:var(--itaso-blue); }
 .cg-tools,.cg-topics { padding-block:64px; }
 .cg-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }

@@ -205,29 +205,82 @@
 
   function caregiverMenu() {
     const tool = (title, description, route, type, glyph) => `<button class="cg-card cg-${type}" type="button" data-route="${route}"><span class="cg-icon">${icon(glyph)}</span><h2>${title}</h2><p>${description}</p><span class="cg-explore">Explorar ${icon('arrow')}</span><svg class="cg-corner" viewBox="0 0 200 130" preserveAspectRatio="none" aria-hidden="true"><path d="M0 130C35 65 120 40 200 0v130Z"/></svg></button>`;
-    render(`<section class="cg-hero cg-container"><div class="cg-copy"><p class="breadcrumb"><a href="#/inicio">Inicio</a> / Cuidadores</p><p class="cg-label">Cuidadores</p><h1>¿Qué necesitas hoy?</h1><p class="cg-lead">Herramientas prácticas que consideran tiempo,<br> presupuesto, disponibilidad y preferencias.</p></div><div class="cg-media"><div class="cg-photo" role="img" aria-label="Espacio reservado para foto de persona cuidadora con NNA">FOTO CUIDADOR/A + NNA</div></div></section><svg class="cg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22C340-50 530 100 800 38S1160-4 1440 58v62H0Z"/></svg><section class="cg-tools cg-container"><p class="cg-label">Herramientas</p><div class="cg-grid">${tool('Recursos y guías','Guías y materiales.','/cuidadores/recursos','orange','book')}${tool('Decide con lo que tienes','No necesitas una comida perfecta. Empecemos por lo que quieres resolver hoy.','/cuidadores/decide-con-lo-que-tienes','green','choice')}${tool('Recetas','Ideas posibles.','/cuidadores/recetas','blue','plate')}</div><button class="cg-gate" type="button" data-open-audience>¿Quién está usando la página? ${icon('arrow')}</button></section><section class="cg-topics cg-container"><p class="cg-label">Temas</p><div class="cg-grid cg-grid-two">${tool('Alimentación','Explora cinco subtemas.','/cuidadores/alimentacion','red','leaf')}${tool('Actividad física y sedentarismo','Encuentra una actividad según tu contexto.','/cuidadores/actividad','green','move')}</div></section><footer class="cg-footer cg-container"><a href="#/inicio" class="cg-wordmark">Itaso</a><span>© ITASO-MX · Prototipo</span><a href="#/inicio">Volver al inicio</a></footer>`, 'caregiver-menu');
+    render(`<section class="cg-hero cg-container"><div class="cg-copy"><p class="breadcrumb"><a href="#/inicio">Inicio</a> / Cuidadores</p><p class="cg-label">Cuidadores</p><h1>¿Qué necesitas hoy?</h1><p class="cg-lead">Herramientas prácticas que consideran tiempo,<br> presupuesto, disponibilidad y preferencias.</p></div><div class="cg-media"><img class="cg-photo" src="assets/identity/itaso_landing_editable-1.png" alt="Una madre abraza a su hija" width="526" height="521"></div></section><svg class="cg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22C340-50 530 100 800 38S1160-4 1440 58v62H0Z"/></svg><section class="cg-tools cg-container"><p class="cg-label">Herramientas</p><div class="cg-grid">${tool('Recursos y guías','Guías y materiales.','/cuidadores/recursos','orange','book')}${tool('Decide con lo que tienes','No necesitas una comida perfecta. Empecemos por lo que quieres resolver hoy.','/cuidadores/decide-con-lo-que-tienes','green','choice')}${tool('Recetas','Ideas posibles.','/cuidadores/recetas','blue','plate')}</div><button class="cg-gate" type="button" data-open-audience>¿Quién está usando la página? ${icon('arrow')}</button></section><section class="cg-topics cg-container"><p class="cg-label">Temas</p><div class="cg-grid cg-grid-two">${tool('Alimentación','Explora cinco subtemas.','/cuidadores/alimentacion','red','leaf')}${tool('Actividad física y sedentarismo','Encuentra una actividad según tu contexto.','/cuidadores/actividad','green','move')}</div></section><footer class="cg-footer cg-container"><a href="#/inicio" class="cg-wordmark">Itaso</a><span>© ITASO-MX · Prototipo</span><a href="#/inicio">Volver al inicio</a></footer>`, 'caregiver-menu');
   }
 
   function decideWithWhatYouHave() { decisionExperience(render, head); }
 
+  const recipeTypes = [['', 'Todos'], ['desayuno', 'Desayuno'], ['comida', 'Comida'], ['cena', 'Cena'], ['lunch', 'Lunch'], ['colacion', 'Colación'], ['bebida', 'Bebidas']];
+  const recipeTags = [['rápida', 'Rápida'], ['económica', 'Económica'], ['con verduras', 'Con verduras'], ['con leguminosas', 'Con leguminosas'], ['para llevar', 'Para llevar'], ['con fruta', 'Con fruta'], ['hidratación', 'Hidratación']];
+
   function recipes() {
-    render(`${head('Recetas', 'Ideas que se adaptan a tu día', 'Filtra por necesidad y edad. Los costos son aproximados.')}
-      <section class="section compact"><div class="container"><form id="recipe-filters" class="card"><div class="grid two"><div><label for="recipe-tag">Tipo</label><select id="recipe-tag"><option value="">Todas</option>${['rápida','económica','lunch','sin refrigeración'].map(x => `<option>${x}</option>`).join('')}</select></div><div><label for="recipe-age">Edad</label><select id="recipe-age"><option value="">Todas</option><option>8–12</option><option>13–17</option></select></div></div></form><div id="recipe-list" class="grid" style="margin-top:18px"></div></div></section>`);
+    render(`${head('Recetas', 'Ideas que se adaptan a tu día', 'Veinte ideas posibles. Filtra por tipo o ingrediente; los costos son aproximados.')}
+      <section class="section compact"><div class="container">
+        <form id="recipe-filters" class="card recipe-filters" onsubmit="return false">
+          <div class="grid two">
+            <div class="form-group"><label for="recipe-type">Tipo</label><select id="recipe-type">${recipeTypes.map(([v, l]) => `<option value="${v}">${l}</option>`).join('')}</select></div>
+            <div class="form-group"><label for="recipe-search">Buscar ingrediente</label><input id="recipe-search" type="search" placeholder="Por ejemplo: frijol, avena, tortilla" autocomplete="off"></div>
+          </div>
+          <div id="recipe-tags" class="recipe-tag-filters" aria-label="Filtrar por característica">${recipeTags.map(([v, l]) => `<button class="filter-chip" type="button" data-recipe-tag="${v}" aria-pressed="false">${l}</button>`).join('')}</div>
+        </form>
+        <p id="recipe-count" class="recipe-count" role="status"></p>
+        <div id="recipe-list" class="grid"></div>
+      </div></section>`);
     drawRecipes();
   }
 
   function drawRecipes() {
-    const tag = document.querySelector('#recipe-tag')?.value || '';
-    const age = document.querySelector('#recipe-age')?.value || '';
-    const items = ITASO_DATA.recipes.filter(r => (!tag || r.tags.includes(tag)) && (!age || r.ages.includes(age)));
-    const target = document.querySelector('#recipe-list'); if (!target) return;
-    target.innerHTML = items.length ? items.map(r => `<article class="card"><p class="eyebrow">${r.time} min · ${r.cost}</p><h3>${r.name}</h3><p>${r.difficulty}</p>${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}<div class="button-row"><a class="button" href="#/cuidadores/recetas/${r.id}">Ver receta</a></div></article>`).join('') : '<div class="empty">No hay recetas con esos dos filtros.</div>';
+    const type = document.querySelector('#recipe-type')?.value || '';
+    const query = (document.querySelector('#recipe-search')?.value || '').trim().toLocaleLowerCase('es');
+    const activeTag = document.querySelector('#recipe-tags [data-recipe-tag][aria-pressed="true"]');
+    const tag = activeTag ? activeTag.dataset.recipeTag : '';
+    const items = ITASO_DATA.recipes.filter(r => {
+      if (type && !r.tipo.includes(type)) return false;
+      if (tag && !r.tags.map(t => t.toLocaleLowerCase('es')).includes(tag)) return false;
+      if (query) {
+        const hay = [r.name, r.description, ...r.ingredients].join(' ').toLocaleLowerCase('es');
+        if (!hay.includes(query)) return false;
+      }
+      return true;
+    });
+    const target = document.querySelector('#recipe-list');
+    const count = document.querySelector('#recipe-count');
+    if (!target) return;
+    if (count) count.textContent = `${items.length} ${items.length === 1 ? 'receta' : 'recetas'}`;
+    target.innerHTML = items.length ? items.map(r => `<article class="card recipe-card">
+      <p class="eyebrow">${r.time} min · ${r.cost} · ${r.difficulty}</p>
+      <h3>${esc(r.name)}</h3>
+      <p class="muted">${esc(r.description)}</p>
+      <div class="recipe-card-tags">${r.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+      <div class="button-row"><a class="button" href="#/cuidadores/recetas/${r.id}">Ver receta</a></div>
+    </article>`).join('') : '<div class="empty"><h3>No hay recetas con esos filtros</h3><p>Prueba con otro tipo, otro ingrediente o quita las características seleccionadas.</p></div>';
   }
 
   function recipeDetail(id) {
     const r = ITASO_DATA.recipes.find(x => x.id === id); if (!r) return Router.go('/cuidadores/recetas');
     const saved = (Store.get('savedRecipes') || []).includes(id);
-    render(`${head('Detalle de receta', r.name, `${r.time} minutos · ${r.difficulty} · ${r.portions} porción(es)`)}<section class="section compact"><div class="narrow grid two"><article class="card"><h2>Ingredientes</h2><ul>${r.ingredients.map(x => `<li>${x}</li>`).join('')}</ul></article><article class="card"><h2>Pasos</h2><ol>${r.steps.map(x => `<li>${x}</li>`).join('')}</ol></article></div><div class="narrow button-row"><button class="button primary" type="button" data-save-recipe="${id}">${saved ? 'Quitar de guardadas' : 'Guardar receta'}</button><a class="button" href="#/cuidadores/recetas">Ver otras recetas</a></div></section>`);
+    const typeLabels = { desayuno: 'Desayuno', comida: 'Comida', cena: 'Cena', lunch: 'Lunch', colacion: 'Colación', bebida: 'Bebida' };
+    render(`${head('Receta', r.name, r.description)}
+      <section class="section compact"><div class="container">
+        <div class="recipe-meta">
+          ${r.tipo.map(t => `<span class="recipe-chip">${typeLabels[t] || esc(t)}</span>`).join('')}
+          <span class="recipe-chip">${r.time} min</span>
+          <span class="recipe-chip">${r.cost}</span>
+          <span class="recipe-chip">${r.difficulty}</span>
+        </div>
+        <div class="narrow grid two recipe-columns">
+          <article class="card"><h2>Ingredientes</h2><ul class="recipe-list-items">${r.ingredients.map(x => `<li>${esc(x)}</li>`).join('')}</ul><p class="recipe-serves">Para ${r.portions} porción(es) aproximadas</p></article>
+          <article class="card"><h2>Pasos</h2><ol class="recipe-list-items">${r.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol></article>
+        </div>
+        <section class="recipe-substitutions">
+          <h2>Si no tienes…</h2>
+          <p class="muted">${esc(r.siNoTienes)}</p>
+          <div class="grid two">${r.substitutions.map(s => `<article class="card substitution-card"><p class="eyebrow">En lugar de ${esc(s.what)}</p><p>${esc(s.replace)}</p></article>`).join('')}</div>
+        </section>
+        <aside class="recipe-serve"><span>PUEDE SERVIRTE SI</span><p>${esc(r.sirveSi)}</p></aside>
+        <p class="recipe-source">Ideas de preparación basadas en el <a href="https://www.unicef.org/mexico/informes/recetario-de-refrigerios" target="_blank" rel="noopener noreferrer">Recetario de refrigerios de UNICEF</a> y en los <a href="https://www.imss.gob.mx/salud-en-linea/nutricion/consejos" target="_blank" rel="noopener noreferrer">Consejos de nutrición del IMSS</a>.</p>
+        <div class="narrow button-row"><button class="button primary" type="button" data-save-recipe="${id}">${saved ? 'Quitar de guardadas' : 'Guardar receta'}</button><a class="button" href="#/cuidadores/recetas">Ver otras recetas</a></div>
+      </div></section>`);
   }
 
   function nutrition() {
@@ -240,19 +293,58 @@
   }
 
   function activity() {
-    render(`${head('Actividad física', 'Encuentra una actividad posible', 'Elige dónde estás y el tiempo disponible.')}
-      <section class="section compact"><form id="activity-form" class="narrow"><div class="form-group"><label for="activity-place">¿Dónde?</label><select id="activity-place" required><option value="">Elige</option><option>Casa</option><option>Parque</option><option>Poco espacio</option></select></div><div class="form-group"><label for="activity-time">¿Cuánto tiempo?</label><select id="activity-time" required><option value="">Elige</option><option value="5">5 min</option><option value="10">10 min</option><option value="20">20 min</option></select></div><button class="button primary" type="submit">Ver actividad</button></form><div id="activity-result" class="narrow"></div></section>`);
+    const topics = Object.entries(ITASO_DATA.activityTopics);
+    const glyph = { movimiento: 'move', cuanto: 'target', intensidad: 'play', sedentarismo: 'star', familia: 'heart' };
+    const topicCard = ([id, t]) => `<button class="card action-card nutrition-card nutrition-${esc(t.accent)}" type="button" data-caregiver-topic="${esc(id)}"><span class="icon-disc">${icon(glyph[id] || 'move')}</span><h3>${esc(t.title)}</h3><p class="muted">${esc(t.subtitle)}</p><span class="nutrition-link">Explorar tema<span class="arrow" aria-hidden="true">${icon('arrow')}</span></span></button>`;
+    const whoOptions = [['solo', 'Solo/a'], ['nina', 'Con una niña o niño'], ['familia', 'En familia']];
+    const goalOptions = [['positivo', 'Movernos un poco'], ['pausa', 'Hacer una pausa'], ['sedentario', 'Salir de la rutina sentada'], ['juntos', 'Hacer algo juntos'], ['intensa', 'Una actividad más intensa']];
+    const optionGrid = (label, key, options) => `<div class="form-group"><p class="form-label">${label}</p><div class="option-grid" data-single>${options.map(([value, text]) => `<button class="option" type="button" data-activity-${key}="${value}" aria-pressed="false">${text}</button>`).join('')}</div></div>`;
+    render(`${head('Actividad física y sedentarismo', 'Muévete en la medida posible', 'Cinco temas para comprender el movimiento cotidiano y un generador que se adapta a tu día.')}
+      <section class="section compact"><div class="container grid nutrition-grid">${topics.map(topicCard).join('')}</div></section>
+      <section class="section compact activity-tool"><div class="container narrow tool-panel">
+        <div class="activity-tool-head"><p class="eyebrow">Generador</p><h2>Encuentra una actividad posible</h2><p class="muted">Combina lugar, tiempo, con quién y qué necesitas hoy.</p></div>
+        <form id="activity-form" class="card">
+          <div class="grid two" style="gap:18px">
+            <div class="form-group"><label for="activity-place">¿Dónde?</label><select id="activity-place" required><option value="">Elige</option><option value="casa">Casa</option><option value="parque">Parque</option><option value="espacio">Poco espacio</option></select></div>
+            <div class="form-group"><label for="activity-time">¿Cuánto tiempo?</label><select id="activity-time" required><option value="">Elige</option><option value="5">5 min</option><option value="10">10 min</option><option value="20">20 min</option></select></div>
+          </div>
+          ${optionGrid('¿Con quién?', 'who', whoOptions)}
+          ${optionGrid('¿Qué buscas hoy?', 'goal', goalOptions)}
+          <div class="button-row"><button class="button primary" type="submit">Ver actividad</button></div>
+          <p class="activity-note">La sugerencia considera tu contexto. Adapta el ritmo a cómo se sienta el cuerpo y no la conviertas en una obligación.</p>
+        </form>
+        <div id="activity-result" class="activity-result" aria-live="polite"></div>
+      </div></section>`);
   }
 
   function resourcePage() {
-    render(`${head('Recursos y guías', 'Materiales para consultar y compartir', 'En esta etapa se muestran placeholders de los contenidos científicos.')}
-      <section class="section compact"><div class="container grid">${['Guía de porciones','Cómo leer etiquetas','Ideas para conversar en familia'].map(x => `<article class="card"><div class="resource-art">${icon("document")}</div><h3>${x}</h3><button class="button" type="button" data-demo-download="${x}">Descargar guía</button></article>`).join('')}</div></section>`);
+    const g = window.ITASO_GUIDE;
+    if (!g) { render(head('Recursos y guías', 'Materiales para consultar y compartir')); return; }
+    render(`${head('Recursos y guías', 'Materiales para consultar y compartir', 'Una guía práctica para acompañar decisiones cotidianas. Puedes leerla completa o volver a la sección que necesites.')}
+      <section class="section compact"><div class="container">
+        <article class="card guide-card">
+          <div class="guide-card-head">
+            <span class="icon-disc tone-${g.accent}">${icon('book')}</span>
+            <span class="resource-badge">${esc(g.type)} · ${esc(g.time)}</span>
+          </div>
+          <h2>${esc(g.title)}</h2>
+          <p class="lead">${esc(g.description)}</p>
+          <ul class="guide-includes">${g.includes.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+          <div class="button-row"><button class="button primary" type="button" data-open-guide>Abrir la guía</button></div>
+        </article>
+        <section class="guide-contents">
+          <p class="eyebrow">Contenido de la guía</p>
+          <h2>Doce secciones breves</h2>
+          <p class="muted">Toca cualquier sección para abrir la guía completa.</p>
+          <div class="guide-contents-grid">${g.sections.map(s => `<button class="guide-section" type="button" data-open-guide><span>${esc(s.n)}</span><strong>${esc(s.title)}</strong></button>`).join('')}</div>
+        </section>
+      </div></section>`);
   }
 
   Router.register('/inicio', landing);
   Router.register('/nna', nnaEntry); Router.register('/nna/personalizacion', personalization); Router.register('/nna/menu', nnaMenu);
   Router.register('/nna/recursos', () => nnaSimple('recursos')); Router.register('/nna/juegos', () => nnaSimple('juegos')); Router.register('/nna/misiones', missions); Router.register('/nna/logros', achievements); Router.register('/nna/compartir', () => nnaSimple('compartir'));
-  Router.register('/cuidadores', caregiverMenu); Router.register('/cuidadores/recursos', resourcePage); Router.register('/cuidadores/decide-con-lo-que-tienes', decideWithWhatYouHave); Router.register('/cuidadores/comparar', () => Router.go('/cuidadores/decide-con-lo-que-tienes')); Router.register('/cuidadores/decidir', () => Router.go('/cuidadores/decide-con-lo-que-tienes')); Router.register('/cuidadores/recetas', recipes); Router.register('/cuidadores/recetas/:id', ({id}) => recipeDetail(id)); Router.register('/cuidadores/alimentacion', nutrition); Router.register('/cuidadores/actividad', activity);
+  Router.register('/cuidadores', caregiverMenu); Router.register('/cuidadores/recursos', resourcePage); Router.register('/cuidadores/decide-con-lo-que-tienes', decideWithWhatYouHave); Router.register('/cuidadores/comparar', () => Router.go('/cuidadores/decide-con-lo-que-tienes')); Router.register('/cuidadores/decidir', () => Router.go('/cuidadores/decide-con-lo-que-tienes')); Router.register('/cuidadores/recetas', recipes); Router.register('/cuidadores/recetas/:id', ({id}) => recipeDetail(id)); Router.register('/cuidadores/alimentacion', nutrition); Router.register('/cuidadores/actividad', activity); Router.register('/cuidadores/actividad-fisica', activity);
 
   document.addEventListener('click', event => {
     const route = event.target.closest('[data-route]')?.dataset.route;
@@ -297,17 +389,20 @@
     if (mission) advanceMission(Number(mission.dataset.missionNext));
     const recipe = event.target.closest('[data-save-recipe]')?.dataset.saveRecipe;
     if (recipe) { const list = Store.toggleInList('savedRecipes', recipe); toast(list.includes(recipe) ? 'Receta guardada' : 'Receta eliminada', 'Tu selección quedó actualizada.'); recipeDetail(recipe); }
-    const download = event.target.closest('[data-demo-download]')?.dataset.demoDownload;
-    if (download) toast('Descarga simulada', `${download} estará disponible cuando se agregue el contenido final.`, 'click');
+    const recipeTag = event.target.closest('[data-recipe-tag]');
+    if (recipeTag) {
+      recipeTag.setAttribute('aria-pressed', String(recipeTag.getAttribute('aria-pressed') !== 'true'));
+      drawRecipes();
+    }
   });
 
   document.addEventListener('change', event => {
-
-    if (event.target.matches('#recipe-tag, #recipe-age')) drawRecipes();
+    if (event.target.matches('#recipe-type')) drawRecipes();
   });
 
   document.addEventListener('input', event => {
     if (event.target.id === 'character-name') refreshCreateButton();
+    if (event.target.id === 'recipe-search') drawRecipes();
   });
 
   document.addEventListener('submit', event => {
@@ -318,17 +413,7 @@
       if (!profile.name || !profile.ageGroup || !profile.avatar.body) return toast('Falta una elección', 'Escribe un nombre y elige un rango de edad.', 'click');
       visitNnaProfile = profile; visitNnaProfileCreated = true; toast('¡Personaje creado!', 'Te llevamos al menú NNA.', 'success'); setTimeout(() => Router.go('/nna/menu'), 700);
     }
-    if (event.target.id === 'activity-form') showActivity(event.target);
   });
-
-  function showActivity(form) {
-    const place = form.querySelector('#activity-place').value; const minutes = form.querySelector('#activity-time').value;
-    if (!place || !minutes) return toast('Completa las dos elecciones', 'Necesitamos lugar y tiempo.', 'click');
-    const activity = place === 'Parque' ? 'Caminata con cambios de ritmo' : place === 'Poco espacio' ? 'Secuencia de movilidad en el lugar' : 'Circuito con objetos de casa';
-    const id = `${place}-${minutes}-${activity}`;
-    document.querySelector('#activity-result').innerHTML = `<div class="result"><p class="eyebrow">Actividad sugerida</p><h3>${activity}</h3><p>Durante ${minutes} minutos, alterna movimiento suave y pausas. Ajusta el ritmo a cómo se siente tu cuerpo.</p><button class="button primary" type="button" data-save-activity="${esc(id)}">Guardar actividad</button></div>`;
-    document.querySelector('[data-save-activity]').addEventListener('click', () => { const list = Store.toggleInList('savedActivities', id); toast(list.includes(id) ? 'Actividad guardada' : 'Actividad eliminada', 'Puedes consultarla después.'); }); tone('click');
-  }
 
   function advanceMission(step) {
     const target = document.querySelector('#mission-step'); const bar = document.querySelector('#mission-progress');

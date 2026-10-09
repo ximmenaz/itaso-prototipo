@@ -35,26 +35,7 @@
       description: 'Fuentes oficiales y científicas que respaldan los criterios y materiales de ITASO.',
       intro: 'Los contenidos de ITASO se construyen a partir de fuentes oficiales y científicas que ayudan a transformar información especializada en criterios claros para la vida cotidiana.',
       render: 'nutrition',
-      sections: [
-        { title:'Porciones y etiquetado', text:'Estas fuentes respaldan los criterios utilizados para comprender porciones, cantidades, información nutrimental y etiquetado frontal.', sources:[
-          {institution:'Diario Oficial de la Federación', title:'NOM-051-SCFI/SSA1-2010', url:'https://www.dof.gob.mx/2020/SEECO/NOM_051.pdf'},
-          {institution:'Secretaría de Salud', title:'Etiquetado frontal de alimentos y bebidas', url:'https://www.gob.mx/promosalud/acciones-y-programas/etiquetado-de-alimentos'},
-          {institution:'Instituto Mexicano del Seguro Social', title:'Nutrición', url:'https://www.imss.gob.mx/salud-en-linea/nutricion'}
-        ]},
-        { title:'Grupos de alimentos', text:'Referencias utilizadas para comprender variedad, combinación y los grupos del Plato del Bien Comer Saludable y Sostenible.', sources:[
-          {institution:'Instituto Mexicano del Seguro Social', title:'Plato del Bien Comer Saludable y Sostenible', url:'https://www.imss.gob.mx/salud-en-linea/platobiencomer'},
-          {institution:'Secretaría de Salud · Instituto Nacional de Salud Pública · UNICEF', title:'Guías Alimentarias Saludables y Sostenibles para la Población Mexicana 2025', url:'https://www.gob.mx/salud/sinsamac/documentos/guias-alimentarias-saludables-y-sostenibles-para-la-poblacion-mexicana-2025'}
-        ]},
-        { title:'Hidratación y bebidas', text:'Fuentes utilizadas para abordar hidratación, bebidas azucaradas y criterios para comparar bebidas.', sources:[
-          {institution:'Organización Mundial de la Salud', title:'Alimentación saludable / Healthy diet', url:'https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet'},
-          {institution:'Secretaría de Salud · INSP · UNICEF', title:'Guías Alimentarias Saludables y Sostenibles para la Población Mexicana 2025', url:'https://www.gob.mx/salud/sinsamac/documentos/guias-alimentarias-saludables-y-sostenibles-para-la-poblacion-mexicana-2025'},
-          {institution:'Secretaría de Salud', title:'Etiquetado frontal de alimentos y bebidas', url:'https://www.gob.mx/promosalud/acciones-y-programas/etiquetado-de-alimentos'}
-        ]},
-        { title:'Hambre y saciedad', text:'Referencias utilizadas para abordar señales de hambre y saciedad y acompañamiento respetuoso durante las comidas.', sources:[
-          {institution:'American Academy of Pediatrics · HealthyChildren.org', title:'Making Sure Your Child Is Eating Enough', url:'https://www.healthychildren.org/spanish/healthy-living/nutrition/paginas/making-sure-your-child-is-eating-enough.aspx'},
-          {institution:'Centers for Disease Control and Prevention', title:'Signs Your Child Is Hungry or Full', url:'https://www.cdc.gov/infant-toddler-nutrition/mealtime/signs-your-child-is-hungry-or-full.html'}
-        ]}
-      ]
+      sections: []
     },
     team: {
       accent: 'blue',
@@ -86,6 +67,9 @@
       closing: { title:'Para qué', text:'No se trata solamente de presentar información, sino de ayudar a que pueda ser utilizada en decisiones reales.', cta:'Explorar herramientas para cuidadores', href:'#/cuidadores' }
     }
   };
+  if (window.ITASO_SOURCES) {
+    LANDING_INFO.nutrition.sections = window.ITASO_SOURCES.map(group => ({ title: group.theme, text: group.description, sources: group.sources }));
+  }
   window.ITASO_LANDING_INFO = LANDING_INFO;
   function openInfo(title,html) { const dialog=document.querySelector('#lp-dialog'); if(!dialog) return; document.querySelector('#lp-dialog-title').textContent=title; document.querySelector('#lp-dialog-content').innerHTML=html; dialog.showModal(); }
   document.addEventListener('click',event=>{

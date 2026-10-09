@@ -1,0 +1,108 @@
+/* Cuidadores enriquecido: Actividad física (fichas temáticas + generador),
+   Recursos y guías. Reutiliza el sistema visual de nutrition.css (tarjetas,
+   modales, acentos) y los tokens ITASO. */
+
+/* ---------- Íconos de tarjeta por acento ---------- */
+.icon-disc.tone-orange { background: var(--itaso-orange-soft); color: var(--itaso-orange); }
+.icon-disc.tone-blue { background: var(--itaso-blue-soft); color: var(--itaso-blue); }
+.icon-disc.tone-green { background: var(--itaso-green-soft); color: var(--itaso-green); }
+.icon-disc.tone-yellow { background: var(--itaso-yellow-soft); color: var(--itaso-yellow); }
+.icon-disc.tone-red { background: var(--itaso-red-soft); color: var(--itaso-red); }
+
+/* ---------- Fichas temáticas (Actividad física) ---------- */
+.activity-tool { margin-top: 60px; padding-top: 44px; border-top: 1px solid var(--line); }
+.activity-tool-head .eyebrow { color: var(--itaso-orange); }
+.activity-tool-head h2 { margin: 0 0 14px; }
+.activity-tool-head p.muted { margin: 0 0 8px; }
+.tool-panel { max-width: 860px; }
+.tool-panel .option-grid { margin-top: 6px; }
+.activity-note { margin-top: 12px; color: var(--text-subtle); font-size: 13px; line-height: 1.45; }
+.activity-result { margin-top: 26px; }
+.activity-result .result { margin: 0; max-width: none; }
+.activity-result-card h3 { margin: 0 0 14px; }
+.activity-facts {
+  margin: 0 0 20px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.activity-facts div { padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.activity-facts dt { font-size: 11px; font-weight: 850; text-transform: uppercase; letter-spacing: .08em; color: var(--text-subtle); }
+.activity-facts dd { margin: 4px 0 0; font-weight: 720; }
+.activity-h { margin: 0 0 8px; font-size: 18px; }
+.activity-steps { margin: 0 0 0 20px; }
+.activity-steps li { margin: 5px 0; }
+.activity-adapt { margin: 14px 0 0; color: var(--text-secondary); }
+
+/* ---------- Recursos y guías ---------- */
+.resource-filters { display: flex; flex-wrap: wrap; gap: 10px; }
+.filter-chip {
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-weight: 720;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease, color .18s ease;
+}
+.filter-chip:hover,
+.filter-chip:focus-visible { border-color: var(--action); color: var(--action); }
+.filter-chip[aria-pressed="true"] { background: var(--action); border-color: var(--action); color: var(--white); }
+.resource-card { min-height: 340px; display: flex; flex-direction: column; align-items: flex-start; }
+.resource-card-head { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.resource-badge {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 760;
+}
+.resource-card h3 { margin: 18px 0 10px; }
+.resource-card p.muted { margin: 0 0 16px; }
+.resource-card .resource-chips { margin-bottom: 14px; }
+.resource-actions { margin-top: auto; width: 100%; }
+.resource-pill {
+  align-self: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--text-subtle);
+  font-size: 11px;
+  font-weight: 760;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* ---------- Modal de recursos (cuerpo variable) ---------- */
+.resource-modal-body .resource-intro { margin-top: 20px; }
+.cg-detail { margin-top: 24px; }
+.cg-detail-title { margin: 0 0 12px; font-size: 22px; }
+.cg-detail-list { margin: 0 0 0 20px; }
+.cg-detail-list li { margin: 6px 0; color: var(--text-secondary); }
+.cg-soon {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px dashed #cdd5df;
+  border-radius: 12px;
+  color: var(--text-subtle);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.cg-back { margin: 14px 0 0; font-weight: 700; }
+.cg-back a { color: var(--action); text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+  .activity-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 679px) {
+  .resource-filters .filter-chip { flex: 1 1 45%; text-align: center; }
+  .activity-tool { margin-top: 40px; padding-top: 30px; }
+  .activity-facts { grid-template-columns: 1fr; }
+  .resource-card { min-height: 300px; }
+}

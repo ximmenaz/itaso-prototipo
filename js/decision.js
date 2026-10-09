@@ -58,7 +58,20 @@
   }
   window.decisionExperience = function (render, head) {
     state = {step:0,purpose:'',priority:'',foods:[],other:'',kind:'Bebidas preparadas en casa',products:[{},{}]};
-    render(`${head('Cuidadores','Decide con lo que tienes','No necesitas una comida perfecta. Empecemos por lo que quieres resolver hoy.')}<section class="section compact"><div class="container decision-surface" id="decision-work" tabindex="-1">${button('Ver mis opciones','start')}</div></section>`);
+    render(`${head('Cuidadores','Decide con lo que tienes','No necesitas una comida perfecta. Empecemos por lo que quieres resolver hoy.')}
+      <section class="section compact"><div class="container">
+        <p class="lead">Elige la situación que más se parece a tu día. Cada una abre una ficha breve con criterios e ideas para decidir con lo que tienes.</p>
+        <div id="scenario-grid" class="grid scenario-grid"></div>
+      </div></section>
+      <section class="section compact decision-general"><div class="container narrow">
+        <div class="card decision-cta">
+          <p class="eyebrow">Asistente</p>
+          <h2>¿Prefieres una guía paso a paso?</h2>
+          <p class="muted">Responde unas preguntas y compara dos alternativas concretas para tu situación.</p>
+          <div id="decision-work" class="decision-surface" tabindex="-1">${button('Ver mis opciones','start')}</div>
+        </div>
+      </div></section>`);
+    if (window.Scenarios) window.Scenarios.render();
   };
   document.addEventListener('click', event => {
     const action = event.target.closest('[data-decision]')?.dataset.decision;

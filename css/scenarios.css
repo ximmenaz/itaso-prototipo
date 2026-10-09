@@ -1,0 +1,127 @@
+/* "Decide con lo que tienes" (situaciones + asistente), Recetas y Recursos.
+   Extiende el sistema visual de nutrition.css y caregiver.css. */
+
+/* ---------- Entrada: situaciones cotidianas ---------- */
+.scenario-grid { margin-top: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.scenario-grid .nutrition-card { min-height: 300px; }
+.scenario-grid .nutrition-card p.muted { margin-bottom: 18px; }
+
+.decision-general { border-top: 1px solid var(--line); }
+.decision-cta { text-align: left; }
+.decision-cta h2 { margin: 10px 0 12px; font-size: clamp(28px, 3.2vw, 44px); }
+.decision-cta p.muted { margin: 0 0 20px; }
+.decision-cta .decision-surface { max-width: 100%; }
+
+.scenario-back { margin: 16px 0 0; font-weight: 700; }
+.scenario-back a { color: var(--itaso-orange); text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Recetas: filtros y tarjetas ---------- */
+.recipe-filters { display: grid; gap: 18px; }
+.recipe-tag-filters { display: flex; flex-wrap: wrap; gap: 10px; }
+.recipe-count { margin: 20px 0 4px; color: var(--text-subtle); font-size: 13px; font-weight: 760; letter-spacing: .04em; text-transform: uppercase; }
+.recipe-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 320px; }
+.recipe-card h3 { margin: 16px 0 10px; }
+.recipe-card p.muted { margin: 0 0 16px; }
+.recipe-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.recipe-card .button-row { margin-top: auto; }
+
+/* ---------- Detalle de receta ---------- */
+.recipe-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.recipe-chip {
+  padding: 7px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 720;
+}
+.recipe-columns { margin-top: 6px; }
+.recipe-list-items { margin: 0; padding-left: 20px; }
+.recipe-list-items li { margin: 8px 0; color: var(--text-secondary); }
+.recipe-serves { margin: 16px 0 0; color: var(--text-subtle); font-size: 13px; font-weight: 700; }
+.recipe-substitutions { margin-top: 44px; }
+.recipe-substitutions h2 { margin: 0 0 10px; font-size: clamp(28px, 3.2vw, 44px); }
+.recipe-substitutions > p.muted { margin: 0 0 20px; }
+.substitution-card p { margin: 8px 0 0; }
+.substitution-card .eyebrow { color: var(--itaso-orange); }
+.recipe-serve {
+  margin-top: 28px;
+  padding: 20px 24px;
+  border: 1.5px solid var(--itaso-green);
+  border-radius: 18px;
+  background: var(--itaso-green-soft);
+}
+.recipe-serve span { display: block; color: var(--action); font-size: 11px; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+.recipe-serve p { margin: 8px 0 0; color: #1f3b2a; font-size: 16px; font-weight: 640; line-height: 1.45; }
+.recipe-source { margin: 22px 0 0; color: var(--text-subtle); font-size: 13px; line-height: 1.5; }
+.recipe-source a { color: var(--action); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Recursos y guías ---------- */
+.guide-card { display: flex; flex-direction: column; align-items: flex-start; }
+.guide-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; }
+.guide-card h2 { margin: 22px 0 12px; }
+.guide-card .lead { margin: 0 0 20px; }
+.guide-includes { margin: 0 0 24px; padding-left: 20px; display: grid; gap: 8px; }
+.guide-includes li { color: var(--text-secondary); }
+.guide-contents { margin-top: 56px; padding-top: 44px; border-top: 1px solid var(--line); }
+.guide-contents .eyebrow { color: var(--itaso-orange); }
+.guide-contents h2 { margin: 8px 0 10px; }
+.guide-contents p.muted { margin: 0 0 24px; }
+.guide-contents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.guide-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  text-align: left;
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+.guide-section:hover,
+.guide-section:focus-visible { border-color: var(--itaso-orange); background: var(--itaso-orange-soft); }
+.guide-section span { color: var(--itaso-orange); font-size: 15px; font-weight: 850; letter-spacing: .04em; }
+.guide-section strong { font-size: 15px; font-weight: 720; line-height: 1.25; }
+
+/* ---------- Guía dentro del modal ---------- */
+.guide-sections { margin-top: 28px; }
+.guide-section-list { display: grid; gap: 12px; margin-top: 14px; }
+.guide-section-block {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 16px;
+  border: 1.5px solid var(--itaso-orange);
+  border-radius: 18px;
+  background: var(--white);
+}
+.guide-section-block > span {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffd6c2;
+  color: var(--itaso-orange);
+  font-size: 12px;
+  font-weight: 850;
+}
+.guide-section-block h4 { margin: 0; font-size: 20px; font-weight: 760; letter-spacing: -.025em; }
+.guide-section-block p { max-width: 680px; margin: 7px 0 0; color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
+.guide-source-group { margin-top: 16px; }
+.guide-source-theme { margin: 0 0 8px; color: var(--itaso-orange); font-size: 12px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .scenario-grid .nutrition-card { min-height: 260px; }
+}
+@media (max-width: 679px) {
+  .recipe-card { min-height: 280px; }
+  .guide-contents { margin-top: 40px; padding-top: 30px; }
+  .guide-section-block { grid-template-columns: 1fr; gap: 8px; }
+  .guide-section-block span { width: 32px; height: 32px; }
+}
