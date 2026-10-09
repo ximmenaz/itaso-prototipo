@@ -231,7 +231,12 @@
   }
 
   function nutrition() {
-    render(`${head('Alimentación', '¿Qué quieres entender?', 'Elige un tema para ver una explicación breve y un ejemplo cotidiano.')}<section class="section compact"><div class="container grid">${Object.entries({porciones:'Porciones',grupos:'Grupos de alimentos',etiquetado:'Etiquetado nutrimental',hidratacion:'Hidratación y bebidas azucaradas',hambre:'Hambre y saciedad'}).map(([id,x]) => menuCard(x,'Abrir explicación.',`topic:${id}`)).join('')}</div><div id="inline-result" class="narrow"></div></section>`);
+    render(`${head('Alimentación', '¿Qué quieres entender?', 'Elige un tema para abrir una ficha informativa con fuentes verificables.')}<section class="section compact"><div class="container grid nutrition-grid">${Object.entries(ITASO_DATA.nutritionResources).map(([id, topic]) => nutritionCard(id, topic)).join('')}</div></section>`);
+  }
+
+  function nutritionCard(id, topic) {
+    const glyph = ({ porciones: 'book', grupos: 'plate', etiquetado: 'book', hidratacion: 'drop', hambre: 'heart' }[id] || 'leaf');
+    return `<button class="card action-card nutrition-card nutrition-${esc(topic.accent)}" type="button" data-nutrition="${esc(id)}"><span class="icon-disc">${icon(glyph)}</span><h3>${esc(topic.title)}</h3><p class="muted">${esc(topic.subtitle)}</p><span class="nutrition-link">Explorar tema<span class="arrow" aria-hidden="true">${icon('arrow')}</span></span></button>`;
   }
 
   function activity() {
@@ -257,9 +262,6 @@
         const [, kind, index] = route.split(':');
         const texts = kind === 'compartir' ? ['Vista previa de tarjeta generada. Puedes mostrarla o guardarla.','Tarjeta creada con tu avance.','¡Tu misión está lista para compartir!'] : ['Observa, elige y compara. No hay una única respuesta correcta.','Actividad iniciada. Elige la opción que se parezca más a tu día.','Aprendizaje breve: fíjate en la porción antes de comparar.'];
         document.querySelector('#inline-result').innerHTML = `<div class="result"><h3>${texts[index]}</h3><p>Este módulo demuestra el recorrido; el contenido final se añadirá en otra etapa.</p><a class="button" href="#/nna/menu">Volver al menú NNA</a></div>`;
-      } else if (route.startsWith('topic:')) {
-        const id = route.split(':')[1]; const items = ITASO_DATA.nutritionTopics[id];
-        document.querySelector('#inline-result').innerHTML = `<div class="result"><h3>Explicación</h3><ul>${items.map(x => `<li>${x}</li>`).join('')}</ul><p><strong>Ejemplo cotidiano:</strong> observa dos opciones que ya tienes disponibles y compáralas usando el mismo criterio.</p><div class="button-row"><a class="button" href="#/cuidadores/decide-con-lo-que-tienes">Decide con lo que tienes</a></div></div>`;
       } else Router.go(route);
     }
     const single = event.target.closest('[data-single] .option');

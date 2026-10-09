@@ -24,45 +24,15 @@
       }
 
       .st18 {
-        font-size: 42px;
-        letter-spacing: 0em;
-      }
-
-      .st18, .st19, .st20, .st21, .st22, .st23, .st24, .st25, .st26, .st27, .st28, .st29, .st30, .st31, .st32, .st33, .st34, .st35, .st36, .st37, .st38, .st39, .st40, .st41, .st42 {
-        isolation: isolate;
-      }
-
-      .st18, .st19, .st20, .st22, .st23, .st25, .st26, .st28, .st30, .st31, .st32, .st33, .st37, .st38, .st40, .st42 {
-        font-family: Arial-BoldMT, Arial;
-        font-weight: 700;
-      }
-
-      .st18, .st20, .st22, .st30, .st33, .st36, .st38, .st41 {
-        fill: #152033;
-      }
-
-      .st43 {
         fill: #25b9d6;
       }
 
-      .st44 {
+      .st19 {
         stroke: #e3e9ee;
       }
 
-      .st44, .st25, .st28, .st45, .st46, .st47 {
+      .st19, .st20, .st21, .st22, .st23, .st24 {
         fill: #fff;
-      }
-
-      .st19 {
-        fill: #db2638;
-      }
-
-      .st19, .st25, .st26, .st32 {
-        font-size: 16px;
-      }
-
-      .st19, .st26 {
-        letter-spacing: 0em;
       }
 
       .st2 {
@@ -77,12 +47,29 @@
         stroke-width: 4px;
       }
 
-      .st48 {
+      .st25 {
         fill: #2eaf47;
       }
 
-      .st20, .st29, .st40 {
+      .st26, .st27, .st28, .st29, .st30, .st31, .st32, .st20, .st33, .st34, .st35, .st21, .st36, .st37, .st38, .st39, .st40, .st41, .st42, .st43, .st44, .st45, .st46, .st47, .st48 {
+        isolation: isolate;
+      }
+
+      .st26, .st27, .st29, .st30, .st32, .st20, .st34, .st35, .st21, .st37, .st38, .st42, .st43, .st44, .st47, .st48 {
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+      }
+
+      .st26, .st27, .st34, .st35, .st37, .st41, .st44, .st46 {
+        fill: #152033;
+      }
+
+      .st26, .st36, .st43 {
         font-size: 17px;
+      }
+
+      .st27 {
+        font-size: 42px;
       }
 
       .st3, .st11, .st12 {
@@ -133,21 +120,16 @@
         stroke-width: 2.8px;
       }
 
-      .st21, .st23, .st28, .st31, .st35, .st37, .st41, .st42 {
+      .st28, .st30, .st21, .st38, .st40, .st42, .st46, .st48 {
         font-size: 18px;
       }
 
-      .st21, .st27, .st29, .st34, .st35, .st36, .st39, .st41 {
+      .st28, .st33, .st36, .st39, .st40, .st41, .st45, .st46 {
         font-family: Inter18pt-Regular, 'Inter 18pt';
       }
 
-      .st21, .st29, .st34, .st39 {
+      .st28, .st36, .st39, .st45 {
         fill: #516078;
-      }
-
-      .st22 {
-        font-size: 75px;
-        letter-spacing: 0em;
       }
 
       .st8 {
@@ -158,40 +140,64 @@
         fill: #feda10;
       }
 
-      .st23 {
-        fill: #f56a28;
-      }
-
-      .st26 {
+      .st29 {
         fill: #2a9e4d;
       }
 
-      .st27 {
+      .st29, .st32, .st20, .st47 {
+        font-size: 16px;
+      }
+
+      .st56 {
+        fill: #fed97d;
+      }
+
+      .st30 {
+        fill: #f56a28;
+      }
+
+      .st32 {
+        letter-spacing: .1em;
+      }
+
+      .st32, .st43 {
+        fill: #2b9c4c;
+      }
+
+      .st33 {
         fill: #536077;
         font-size: 19px;
       }
 
-      .st56 {
+      .st57 {
         fill: #eaf8ec;
       }
 
-      .st57 {
+      .st58 {
         fill: #fff4d7;
       }
 
-      .st58 {
+      .st59 {
         fill: #fad1d9;
       }
 
-      .st59 {
-        clip-path: url(#clippath-1);
+      .st34 {
+        font-size: 43px;
+      }
+
+      .st35 {
+        font-size: 75px;
       }
 
       .st60 {
-        clip-path: url(#clippath-3);
+        clip-path: url(#clippath-1);
       }
 
       .st61 {
+        clip-path: url(#clippath-3);
+      }
+
+      .st62 {
         clip-path: url(#clippath-2);
       }
 
@@ -199,7 +205,7 @@
         stroke: #227843;
       }
 
-      .st30 {
+      .st37 {
         font-size: 34px;
       }
 
@@ -207,65 +213,52 @@
         stroke: #fff;
       }
 
-      .st62 {
-        fill: #fff0e9;
-      }
-
-      .st31 {
-        fill: #227843;
-      }
-
-      .st32 {
-        letter-spacing: .1em;
-      }
-
-      .st32, .st40 {
-        fill: #2b9c4c;
-      }
-
       .st63 {
-        fill: #ce1b31;
+        fill: url(#Degradado_sin_nombre);
       }
 
       .st64 {
-        fill: url(#Degradado_sin_nombre_2);
+        fill: #fff0e9;
+      }
+
+      .st38 {
+        fill: #227843;
       }
 
       .st65 {
-        fill: #ffcf38;
+        fill: #ce1b31;
       }
 
       .st66 {
+        fill: #ffcf38;
+      }
+
+      .st67 {
         fill: #e5f6ff;
       }
 
-      .st46 {
+      .st23 {
         stroke: #e9eef2;
         stroke-width: 2px;
       }
 
-      .st33 {
-        font-size: 43px;
-        letter-spacing: 0em;
-      }
-
-      .st34 {
+      .st39 {
         font-size: 21px;
       }
 
-      .st35 {
+      .st40 {
         fill: #56667e;
       }
 
-      .st67 {
+      .st68 {
         fill: #d2f0d9;
       }
 
-      .st36 {
+      .st41 {
         font-size: 27px;
       }
 
-      .st37 {
+      .st42 {
         fill: #208b40;
       }
 
@@ -273,35 +266,51 @@
         stroke: #189348;
       }
 
-      .st47 {
-        stroke: #aab6c7;
-      }
-
-      .st47, .st14 {
-        stroke-width: 1.4px;
-      }
-
-      .st38 {
-        font-size: 44px;
-      }
-
-      .st39 {
-        font-size: 23px;
-      }
-
-      .st40 {
+      .st43 {
         letter-spacing: .1em;
       }
 
-      .st68 {
-        fill: #fafcfd;
+      .st24 {
+        stroke: #aab6c7;
+      }
+
+      .st24, .st14 {
+        stroke-width: 1.4px;
+      }
+
+      .st44 {
+        font-size: 44px;
+      }
+
+      .st45 {
+        font-size: 23px;
       }
 
       .st69 {
+        fill: #fafcfd;
+      }
+
+      .st70 {
+        fill: #f66b34;
+      }
+
+      .st71 {
         clip-path: url(#clippath);
       }
 
-      .st42 {
+      .st72 {
+        fill: url(#Degradado_sin_nombre1);
+      }
+
+      .st73 {
+        fill: #fece67;
+      }
+
+      .st47 {
+        fill: #db2638;
+      }
+
+      .st48 {
         fill: #2196d3;
       }
 
@@ -321,10 +330,11 @@
     <clipPath id="clippath">
       <rect class="st0" x="833.2" y="191.1" width="526" height="521" rx="68" ry="68"/>
     </clipPath>
-    <linearGradient id="Degradado_sin_nombre_2" data-name="Degradado sin nombre 2" x1="-1212.1" y1="1726.7" x2="-1211" y2="1726.7" gradientTransform="translate(1628996.9982 464448.1567) scale(1344 -267.7518)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Degradado_sin_nombre" data-name="Degradado sin nombre" x1="1480.9" y1="1274.3" x2="2920.9" y2="1274.3" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ffeab4"/>
       <stop offset="1" stop-color="#ffd777"/>
     </linearGradient>
+    <linearGradient id="Degradado_sin_nombre1" data-name="Degradado sin nombre" x1="-1175.1" y1="-162.7" x2="-1174" y2="-162.7" gradientTransform="translate(1579306 45680.0848) scale(1344 267.7518)" xlink:href="#Degradado_sin_nombre"/>
     <clipPath id="clippath-1">
       <rect class="st0" x="86" y="1225" width="390" height="189" rx="22" ry="22"/>
     </clipPath>
@@ -336,149 +346,260 @@
     </clipPath>
   </defs>
   <rect class="st49" width="1440" height="2365"/>
-  <rect class="st68" width="1440" height="711"/>
+  <rect class="st69" width="1440" height="711"/>
   <g id="navegacion">
-    <rect class="st45" x="48" y="24" width="1344" height="92" rx="24" ry="24"/>
+    <rect class="st22" x="48" y="24" width="1344" height="92" rx="24" ry="24"/>
   </g>
-  <text class="st20" transform="translate(660 79)"><tspan x="0" y="0">Quiénes somos</tspan></text>
-  <text class="st20" transform="translate(821 79)"><tspan x="0" y="0">Equipo</tspan></text>
-  <text class="st20" transform="translate(914 79)"><tspan x="0" y="0">Misión y visión</tspan></text>
-  <text class="st20" transform="translate(1095.0001 79)"><tspan x="0" y="0">Fuentes</tspan></text>
+  <g class="st31">
+    <text class="st26" transform="translate(660 79)"><tspan x="0" y="0">Quiénes somos</tspan></text>
+  </g>
+  <g class="st31">
+    <text class="st26" transform="translate(821 79)"><tspan x="0" y="0">Equipo</tspan></text>
+  </g>
+  <g class="st31">
+    <text class="st26" transform="translate(914 79)"><tspan x="0" y="0">Misión y visión</tspan></text>
+  </g>
+  <g class="st31">
+    <text class="st26" transform="translate(1095.0001 79)"><tspan x="0" y="0">Fuentes</tspan></text>
+  </g>
   <circle class="st15" cx="1205" cy="69" r="8"/>
   <path class="st15" d="M1211,75l7,7"/>
-  <rect class="st48" x="1236" y="42" width="138" height="56" rx="15" ry="15"/>
-  <text class="st25" transform="translate(1261.4415 77)"><tspan x="0" y="0">Conócenos</tspan></text>
+  <rect class="st25" x="1236" y="42" width="138" height="56" rx="15" ry="15"/>
+  <g class="st31">
+    <text class="st20" transform="translate(1261.4415 77)"><tspan x="0" y="0">Conócenos</tspan></text>
+  </g>
   <g id="hero">
-    <text class="st32" transform="translate(83.9 173.5)"><tspan x="0" y="0">INSTITUTO DE TRASTORNOS Y ALIMENTACIÓN SALUDABLE</tspan></text>
-    <text class="st22" transform="translate(80.9 257.5)"><tspan x="0" y="0">Claridad para</tspan></text>
-    <text class="st22" transform="translate(80.9 339.5)"><tspan x="0" y="0">decidir desde</tspan></text>
-    <text class="st22" transform="translate(80.9 421.5)"><tspan x="0" y="0">tu realidad.</tspan></text>
-    <text class="st39" transform="translate(84.4 471.7)"><tspan x="0" y="0">Información comprensible y herramientas prácticas</tspan></text>
-    <text class="st39" transform="translate(84.4 504.7)"><tspan x="0" y="0">para acompañar decisiones cotidianas sobre</tspan></text>
-    <text class="st39" transform="translate(84.4 537.7)"><tspan x="0" y="0">alimentación, bienestar y movimiento.</tspan></text>
+    <g class="st31">
+      <text class="st32" transform="translate(83.9 173.5)"><tspan x="0" y="0">INSTITUTO DE TRASTORNOS Y ALIMENTACIÓN SALUDABLE</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st35" transform="translate(80.9 257.5)"><tspan x="0" y="0">Claridad para</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st35" transform="translate(80.9 339.5)"><tspan x="0" y="0">decidir desde</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st35" transform="translate(80.9 421.5)"><tspan x="0" y="0">tu realidad.</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st45" transform="translate(84.4 471.7)"><tspan x="0" y="0">Información comprensible y herramientas prácticas</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st45" transform="translate(84.4 504.7)"><tspan x="0" y="0">para acompañar decisiones cotidianas sobre</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st45" transform="translate(84.4 537.7)"><tspan x="0" y="0">alimentación, bienestar y movimiento.</tspan></text>
+    </g>
     <rect class="st49" x="82" y="571.6" width="191" height="61" rx="15" ry="15"/>
-    <text class="st28" transform="translate(109 609.6)"><tspan x="0" y="0">Conócenos</tspan></text>
+    <g class="st31">
+      <text class="st21" transform="translate(109 609.6)"><tspan x="0" y="0">Conócenos</tspan></text>
+    </g>
     <path class="st10" d="M234,601.6h16M244,595.6l6,6-6,6"/>
-    <rect class="st47" x="289" y="571.6" width="222" height="61" rx="15" ry="15"/>
-    <text class="st41" transform="translate(325.8 609.6)"><tspan x="0" y="0">Elegir experiencia</tspan></text>
-    <circle class="st65" cx="894" cy="527" r="96"/>
-    <g class="st69">
-      <image class="st24" width="316" height="321" transform="translate(833.2 184.4) scale(1.7)" xlink:href="itaso_landing_editable-1.png"/>
+    <rect class="st24" x="289" y="571.6" width="222" height="61" rx="15" ry="15"/>
+    <g class="st31">
+      <text class="st46" transform="translate(325.8 609.6)"><tspan x="0" y="0">Elegir experiencia</tspan></text>
+    </g>
+    <circle class="st66" cx="894" cy="527" r="96"/>
+    <g class="st71">
+      <image class="st31" width="315" height="320" transform="translate(833.2 184.4) scale(1.7)" xlink:href="itaso_landing_editable-1.png"/>
     </g>
   </g>
-  <path class="st43" d="M1440,683.5v112.4H0v-115.4c220-44,378,43,606,11,250-37,432,37,630-9,95-23,159-16,204,1Z"/>
-  <path class="st43" d="M0,769.1c220-44,378,43,606,11,250-37,432,37,630-9,95-23,159-16,204,1v61H0v-64Z"/>
-  <path class="st45" d="M1440,752.1v279.8H0v-292.8c265-31,347,56,621,14,205-31,391,47,611-6,102-25,163-11,208,5Z"/>
+  <path class="st18" d="M1440,683.5v112.4H0v-115.4c220-44,378,43,606,11,250-37,432,37,630-9,95-23,159-16,204,1Z"/>
+  <path class="st18" d="M2920.9,1571.7v112.4h-1440v-115.4c220-44,378,43,606,11,250-37,432,37,630-9,95-23,159-16,204,1Z"/>
+  <path class="st63" d="M2920.9,1225.9v112.4h-1440v-115.4c220-44,378,43,606,11,250-37,432,37,630-9,95-23,159-16,204,1Z"/>
+  <path class="st25" d="M2920.9,1397.4v112.4h-1440v-115.4c220-44,378,43,606,11,250-37,432,37,630-9,95-23,159-16,204,1Z"/>
+  <path class="st18" d="M0,769.1c220-44,378,43,606,11,250-37,432,37,630-9,95-23,159-16,204,1v61H0v-64Z"/>
+  <path class="st22" d="M1440,752.1v279.8H0v-292.8c265-31,347,56,621,14,205-31,391,47,611-6,102-25,163-11,208,5h0Z"/>
   <g id="quienes-somos">
-    <rect class="st45" x="0" y="795.9" width="1440" height="236"/>
-    <text class="st40" transform="translate(193.2 832.6)"><tspan x="0" y="0">QUIÉNES SOMOS</tspan></text>
-    <text class="st18" transform="translate(191.2 882.6)"><tspan x="0" y="0">Ciencia que se puede</tspan></text>
-    <text class="st18" transform="translate(191.2 933.6)"><tspan x="0" y="0">usar en la vida real</tspan></text>
-    <text class="st34" transform="translate(675.1 843)"><tspan x="0" y="0">ITASO-MX transforma evidencia científica en criterios claros</tspan></text>
-    <text class="st34" transform="translate(675.1 874)"><tspan x="0" y="0">para que niñas, niños, adolescentes y sus cuidadores</tspan></text>
-    <text class="st34" transform="translate(675.1 905)"><tspan x="0" y="0">puedan comparar alternativas y tomar decisiones posibles,</tspan></text>
-    <text class="st34" transform="translate(675.1 936)"><tspan x="0" y="0">sin juicios ni respuestas únicas.</tspan></text>
+    <rect class="st22" y="795.9" width="1440" height="236"/>
+    <g class="st31">
+      <text class="st43" transform="translate(193.2 832.6)"><tspan x="0" y="0">QUIÉNES SOMOS</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st27" transform="translate(191.2 882.6)"><tspan x="0" y="0">Ciencia que se puede</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st27" transform="translate(191.2 933.6)"><tspan x="0" y="0">usar en la vida real</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st39" transform="translate(675.1 843)"><tspan x="0" y="0">ITASO-MX transforma evidencia científica en criterios claros</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st39" transform="translate(675.1 874)"><tspan x="0" y="0">para que niñas, niños, adolescentes y sus cuidadores</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st39" transform="translate(675.1 905)"><tspan x="0" y="0">puedan comparar alternativas y tomar decisiones posibles,</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st39" transform="translate(675.1 936)"><tspan x="0" y="0">sin juicios ni respuestas únicas.</tspan></text>
+    </g>
   </g>
   <g id="mision-y-vision">
-    <rect class="st56" x="48" y="1718" width="656" height="236" rx="25" ry="25"/>
+    <rect class="st57" x="48" y="1718" width="656" height="236" rx="25" ry="25"/>
     <rect class="st53" x="736" y="1718" width="656" height="236" rx="25" ry="25"/>
-    <circle class="st67" cx="135" cy="1819" r="59"/>
-    <circle class="st58" cx="823" cy="1819" r="59"/>
+    <circle class="st68" cx="135" cy="1819" r="59"/>
+    <circle class="st59" cx="823" cy="1819" r="59"/>
     <path class="st2" d="M135,1848v-42M135,1820c-16-3-21-15-20-29,15,0,24,8,20,29ZM135,1828c2-17,10-25,25-26-1,14-9,23-25,26Z"/>
     <circle class="st7" cx="823" cy="1819" r="31"/>
     <circle class="st7" cx="823" cy="1819" r="18"/>
     <circle class="st52" cx="823" cy="1819" r="5"/>
     <path class="st5" d="M823,1819l33-34M850,1787h8v-8"/>
-    <text class="st26" transform="translate(218 1772)"><tspan x="0" y="0">MISIÓN</tspan></text>
-    <text class="st30" transform="translate(218 1813)"><tspan x="0" y="0">Acompañar</tspan></text>
-    <text class="st21" transform="translate(218 1849)"><tspan x="0" y="0">Convertir información compleja en decisiones</tspan></text>
-    <text class="st21" transform="translate(218 1876)"><tspan x="0" y="0">comprensibles y aplicables.</tspan></text>
-    <text class="st19" transform="translate(906.0001 1772)"><tspan x="0" y="0">VISIÓN</tspan></text>
-    <text class="st30" transform="translate(906.0001 1813)"><tspan x="0" y="0">Bienestar posible</tspan></text>
-    <text class="st21" transform="translate(906.0001 1849)"><tspan x="0" y="0">Entornos donde el cuidado se construya con</tspan></text>
-    <text class="st21" transform="translate(906.0001 1876)"><tspan x="0" y="0">autonomía, criterio y empatía.</tspan></text>
+    <g class="st31">
+      <text class="st29" transform="translate(218 1772)"><tspan x="0" y="0">MISIÓN</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st37" transform="translate(218 1813)"><tspan x="0" y="0">Acompañar</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st28" transform="translate(218 1849)"><tspan x="0" y="0">Convertir información compleja en decisiones</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st28" transform="translate(218 1876)"><tspan x="0" y="0">comprensibles y aplicables.</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st47" transform="translate(906.0001 1772)"><tspan x="0" y="0">VISIÓN</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st37" transform="translate(906.0001 1813)"><tspan x="0" y="0">Bienestar posible</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st28" transform="translate(906.0001 1849)"><tspan x="0" y="0">Entornos donde el cuidado se construya con</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st28" transform="translate(906.0001 1876)"><tspan x="0" y="0">autonomía, criterio y empatía.</tspan></text>
+    </g>
   </g>
   <g id="fuentes">
-    <path class="st64" d="M0,2023c99.3-44.7,202.9-45,310.7-1,107.9,44,215.7,44.7,323.6,2,107.9-42.7,219.3-41.7,334.3,3,115,44.7,221.4,44.3,319.3-1,61.4-37.3,112.1-37.7,152.1-1v208c0,16-8.6,24-25.7,24H25.7C8.6,2257,0,2249,0,2233v-210Z"/>
-    <text class="st40" transform="translate(88.0001 2078)"><tspan x="0" y="0">FUENTES</tspan></text>
-    <text class="st33" transform="translate(87.0001 2134)"><tspan x="0" y="0">Transparencia científica</tspan></text>
-    <text class="st27" transform="translate(89.0001 2172)"><tspan x="0" y="0">Este sitio reserva un espacio para referencias, notas</tspan></text>
-    <text class="st27" transform="translate(89.0001 2202)"><tspan x="0" y="0">metodológicas y actualización de contenidos.</tspan></text>
-    <rect class="st45" x="1036" y="2109" width="307" height="76" rx="18" ry="18"/>
+    <path class="st72" d="M0,2023c99.3-44.7,202.9-45,310.7-1,107.9,44,215.7,44.7,323.6,2s219.3-41.7,334.3,3c115,44.7,221.4,44.3,319.3-1,61.4-37.3,112.1-37.7,152.1-1v208c0,16-8.6,24-25.7,24H25.7c-17.1,0-25.7-8-25.7-24v-210Z"/>
+    <g class="st31">
+      <text class="st43" transform="translate(88.0001 2078)"><tspan x="0" y="0">FUENTES</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st34" transform="translate(87.0001 2134)"><tspan x="0" y="0">Transparencia científica</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st33" transform="translate(89.0001 2172)"><tspan x="0" y="0">Este sitio reserva un espacio para referencias, notas</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st33" transform="translate(89.0001 2202)"><tspan x="0" y="0">metodológicas y actualización de contenidos.</tspan></text>
+    </g>
+    <rect class="st22" x="1036" y="2109" width="307" height="76" rx="18" ry="18"/>
     <path class="st13" d="M1063,2130h17l9,9v26h-26v-35ZM1080,2130v9h9M1069,2148h14M1069,2156h14"/>
-    <text class="st31" transform="translate(1115.965 2154)"><tspan x="0" y="0">Ver todas las fuentes</tspan></text>
+    <g class="st31">
+      <text class="st38" transform="translate(1115.965 2154)"><tspan x="0" y="0">Ver todas las fuentes</tspan></text>
+    </g>
     <path class="st9" d="M1309,2147h16M1319,2141l6,6-6,6"/>
   </g>
   <g id="pie-de-pagina">
     <path class="st14" d="M48,2271.7h1344"/>
-    <text class="st29" transform="translate(87.002 2322.6877)"><tspan x="0" y="0">© ITASO-MX — prototipo</tspan></text>
-    <text class="st29" transform="translate(1051.0021 2322.6877)"><tspan x="0" y="0">Privacidad</tspan></text>
-    <text class="st29" transform="translate(1176.0021 2322.6877)"><tspan x="0" y="0">Términos</tspan></text>
-    <text class="st29" transform="translate(1291.0021 2322.6877)"><tspan x="0" y="0">Contacto</tspan></text>
+    <g class="st31">
+      <text class="st36" transform="translate(87.002 2322.6877)"><tspan x="0" y="0">© ITASO-MX — prototipo</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st36" transform="translate(1051.0021 2322.6877)"><tspan x="0" y="0">Privacidad</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st36" transform="translate(1176.0021 2322.6877)"><tspan x="0" y="0">Términos</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st36" transform="translate(1291.0021 2322.6877)"><tspan x="0" y="0">Contacto</tspan></text>
+    </g>
   </g>
   <g>
-    <path class="st54" d="M110.1,54.2c0-1.9-1.4-3.3-3.1-3.6-2.7-.5-5.1,0-6.2,2.3-5-2.1-12.6-7-14.1-12.2-.5-2-.3-4.4,1.4-5.5,2.5-1.6,5.5-1.5,8,0,1.5,1,2.6,2.1,4,3.5-.1-5.4,1.8-11.9,7.1-13.4,1.2-.4,2.4,0,3.2,1.1,2.1,3,2.4,7.4,2.4,11.4,2.7-1.8,5.6-2.6,8.6-2.5,1.2.1,2.2,1,2.1,2.3,0,2.5-.8,4.7-2.1,6.9-2.6,4.6-6.4,7.8-11.2,9.7h0ZM108,38.6c.2-3,.2-5.8-.5-8.6-.4-1.3-1.6.6-2.2,2.8-.9,3.9-.9,8.3.4,12.3.1.3.6.3.6,0,.9-2.1,1.2-4.3,1.6-6.4h0ZM101.9,48c-.6-1.8-1.7-3.1-2.7-4.4-1.3-1.5-2.6-2.9-4.1-4-1.5-1-3.5-1.4-3.9-.7-1.2,1.9,6.9,7.9,10.4,9.4.2,0,.4,0,.4-.3h0ZM118.3,40.4c0-.2-.1-.4-.4-.3-2.4.8-4.6,2.5-6.1,4.7-.9,1.2-1.6,2.5-2.1,4,0,.2.1.3.3.2,3.3-1.4,7.7-5.7,8.1-8.6h0Z"/>
-    <path class="st49" d="M110.1,54.2v10.8l-.2,4.8-.6,13.3-.2,11.1c0,1.2,0,2.2-.4,3.2-.4,1.6-1.6,2.4-3.2,2.4-2.6,0-3.5-2.3-3.6-4.8,0-3.8,0-7.4-.2-11.2l-.7-12.9-.2-5-.2-11.1c0-.7,0-1.5.2-2,1.1-2.4,3.5-2.8,6.2-2.3,1.8.3,3.1,1.7,3.1,3.6h0c0,0,0,0,0,0Z"/>
+    <path class="st54" d="M110.1,54.2c0-1.9-1.4-3.3-3.1-3.6-2.7-.5-5.1,0-6.2,2.3-5-2.1-12.6-7-14.1-12.2-.5-2-.3-4.4,1.4-5.5,2.5-1.6,5.5-1.5,8,0,1.5,1,2.6,2.1,4,3.5,0-5.4,1.8-11.9,7.1-13.4,1.2-.4,2.4,0,3.2,1.1,2.1,3,2.4,7.4,2.4,11.4,2.7-1.8,5.6-2.6,8.6-2.5,1.2,0,2.2,1,2.1,2.3,0,2.5-.8,4.7-2.1,6.9-2.6,4.6-6.4,7.8-11.2,9.7h-.1ZM108,38.6c.2-3,.2-5.8-.5-8.6-.4-1.3-1.6.6-2.2,2.8-.9,3.9-.9,8.3.4,12.3,0,.3.6.3.6,0,.9-2.1,1.2-4.3,1.6-6.4h0ZM101.9,48c-.6-1.8-1.7-3.1-2.7-4.4-1.3-1.5-2.6-2.9-4.1-4-1.5-1-3.5-1.4-3.9-.7-1.2,1.9,6.9,7.9,10.4,9.4.2,0,.4,0,.4-.3h-.1ZM118.3,40.4c0-.2,0-.4-.4-.3-2.4.8-4.6,2.5-6.1,4.7-.9,1.2-1.6,2.5-2.1,4,0,.2,0,.3.3.2,3.3-1.4,7.7-5.7,8.1-8.6h.2Z"/>
+    <path class="st49" d="M110.1,54.2v10.8l-.2,4.8-.6,13.3-.2,11.1c0,1.2,0,2.2-.4,3.2-.4,1.6-1.6,2.4-3.2,2.4-2.6,0-3.5-2.3-3.6-4.8,0-3.8,0-7.4-.2-11.2l-.7-12.9-.2-5-.2-11.1c0-.7,0-1.5.2-2,1.1-2.4,3.5-2.8,6.2-2.3,1.8.3,3.1,1.7,3.1,3.6h0Z"/>
   </g>
-  <path class="st50" d="M134.3,99.7c-2.6,1.4-4.9-2.2-5.3-5.8-.9-7.6-1.2-15.1-1.6-22.8,0-.2-.2-.3-.4-.3-3.4.8-6.9,2.8-9.1.8-.8-.7-.9-1.7-.9-2.8s.8-2.6,2.1-3.2c2.4-1,5.1-1.6,7.8-2.3.1,0,.2-.2.2-.3,0-3.4-.4-6.7-.2-10,.1-1.4.5-2.9,1.6-3.8,1.6-1.3,4.4-1.3,6.1,0,1.3,1,1.8,2.6,1.8,4.2v8c.1.2.2.3.5.3l7.1-1c1.2-.2,2.4-.2,3.4.6s1.1,2.1.8,3.3c-.3,1-1.4,1.8-2.6,2l-8.9,1.8c-.1,0-.2.2-.2.3v2.2l-.2,25.8c0,1.2-.8,2.5-1.7,3h0Z"/>
-  <path class="st43" d="M168.8,93.1c-2.3,1.3-4.6,2.1-7.1,2.3-2.7.3-5.4.2-7.9-.4-3.6-.9-6.2-3.7-6.9-7.4-1-5.3.5-10.8,3.9-15.1,2.3-2.8,5.1-5,8.3-6.7,6.2-3.2,12.5-4.1,19.4-3.6,2.6.2,4.2.7,5.6,1.2.1,0,.3,0,.4-.2.4-1,.7-1.9,1.5-2.5,1.1-.8,2.4-1,3.9-.5,2.2.7,2.9,3.2,3.4,5.2,1.9,6.9,4.2,13.6,7.2,20,1.1,2.2,2.1,4.3,2.9,6.6.3.8.3,1.7-.1,2.4-.9,1.6-3.6,1.7-5.4.2-5.4-4.3-8.6-12.7-11.6-19.3-.1-.2-.3-.2-.4,0-3.9,7.1-10.4,13.8-17.2,17.6h-.1ZM172.8,81.8c3.5-3.4,6.2-7.4,8.8-11.7-2-.8-3.9-1-5.8-1-6.4,0-13.4,2.2-17.6,7.1-2.3,2.7-3.4,6.2-2.8,9.7.2,1.2,1.4,2.1,2.5,2.3,5.4,1.3,10.9-2.7,14.9-6.4h0Z"/>
+  <path class="st50" d="M134.3,99.7c-2.6,1.4-4.9-2.2-5.3-5.8-.9-7.6-1.2-15.1-1.6-22.8,0-.2-.2-.3-.4-.3-3.4.8-6.9,2.8-9.1.8-.8-.7-.9-1.7-.9-2.8s.8-2.6,2.1-3.2c2.4-1,5.1-1.6,7.8-2.3,0,0,.2-.2.2-.3,0-3.4-.4-6.7-.2-10,0-1.4.5-2.9,1.6-3.8,1.6-1.3,4.4-1.3,6.1,0,1.3,1,1.8,2.6,1.8,4.2v8c.1.2.2.3.5.3l7.1-1c1.2-.2,2.4-.2,3.4.6s1.1,2.1.8,3.3c-.3,1-1.4,1.8-2.6,2l-8.9,1.8c-.1,0-.2.2-.2.3v2.2l-.2,25.8c0,1.2-.8,2.5-1.7,3h-.3Z"/>
+  <path class="st18" d="M168.8,93.1c-2.3,1.3-4.6,2.1-7.1,2.3-2.7.3-5.4.2-7.9-.4-3.6-.9-6.2-3.7-6.9-7.4-1-5.3.5-10.8,3.9-15.1,2.3-2.8,5.1-5,8.3-6.7,6.2-3.2,12.5-4.1,19.4-3.6,2.6.2,4.2.7,5.6,1.2.1,0,.3,0,.4-.2.4-1,.7-1.9,1.5-2.5,1.1-.8,2.4-1,3.9-.5,2.2.7,2.9,3.2,3.4,5.2,1.9,6.9,4.2,13.6,7.2,20,1.1,2.2,2.1,4.3,2.9,6.6.3.8.3,1.7-.1,2.4-.9,1.6-3.6,1.7-5.4.2-5.4-4.3-8.6-12.7-11.6-19.3-.1-.2-.3-.2-.4,0-3.9,7.1-10.4,13.8-17.2,17.6h-.1l.2.2ZM172.8,81.8c3.5-3.4,6.2-7.4,8.8-11.7-2-.8-3.9-1-5.8-1-6.4,0-13.4,2.2-17.6,7.1-2.3,2.7-3.4,6.2-2.8,9.7.2,1.2,1.4,2.1,2.5,2.3,5.4,1.3,10.9-2.7,14.9-6.4h0Z"/>
   <g>
-    <path class="st45" d="M227.3,99.6c2.3-2.7,3.3-5.9,2.8-9.4-.7-5.6-7.3-11-11.6-14.7-1.6-1.4-3.2-2.8-4.6-4.4-.7-.8-1.2-1.8-1.4-2.8-.2-1.7.6-3.2,2.1-3.8.9-.4,1.8-.5,2.8-.6,2.6-.2,5.1.2,7.5,1.3,1.9.9,4.7,1,5.5-.4,1.1-1.9,0-4.1-2-5.3-4.2-2.6-9.1-3.4-14.1-2.8-2.8.3-5.4,1.3-7.4,3.2-2.6,2.3-3.2,5.8-2.9,9.3.3,2.6,2,5.2,3.8,7.2,4,4.6,9.7,8.1,12.7,12.4,1.8,2.6,1.4,5.9-.8,8.1s-6.3,4.2-10.1,5.2c-.6.2-1.3.4-1.8.8-.9.6-1.1,1.4-1.1,2.4s.6,2.4,1.9,2.6c.9,0,1.9,0,2.9-.2,5.4-1.2,12.1-3.8,15.8-8h0Z"/>
-    <path class="st55" d="M227.3,99.6c-3.8,4.2-10.3,6.8-15.8,8-.9.2-1.9.3-2.9.2-1.4-.2-1.9-1.3-1.9-2.6s.2-1.8,1.1-2.4c.5-.3,1.1-.7,1.8-.8,3.9-.9,7.4-2.3,10.1-5.2,2.2-2.2,2.5-5.5.8-8.1-3-4.4-8.7-7.8-12.7-12.4-1.7-2-3.4-4.5-3.8-7.2-.4-3.5.2-7,2.9-9.3,2.1-1.8,4.6-2.8,7.4-3.2,4.9-.7,9.8.2,14.1,2.8,1.9,1.2,3.1,3.4,2,5.3-.8,1.4-3.6,1.3-5.5.4-2.4-1.1-4.9-1.5-7.5-1.3-.9,0-1.9.2-2.8.6-1.5.7-2.4,2.2-2.1,3.8.1,1,.7,2,1.4,2.8,1.4,1.7,3,3,4.6,4.4,4.4,3.7,10.9,9.1,11.7,14.7.4,3.6-.5,6.8-2.8,9.4h0Z"/>
-  </g>
-  <g>
-    <path class="st51" d="M287.1,49.9c-.3-.7-1.1-1.2-1.9-1.3-.9,0-1.7.2-2.2,1-1.8,3-6,5.6-9.2,7-.4.2-.8.3-1.3.2.8-1.5,1.2-3.1,1.3-4.8.2-3.2.2-7.5-1.6-10-.8-1.2-2.2-2-3.8-1.6-1.2.3-2.2,1.2-2.9,2.2-3.3,4.2-4.3,9-3.1,14.2l2.3.2c3.7.5,6.9,2,9.5,4.8,5.4-2,9.5-4.5,12.6-9.5.5-.8.8-1.5.3-2.4,0,0,0,0,0,0ZM269.4,52.2c-.5,2.2-1.4,3.2-2,3.5-.2.2-.6,0-.7-.2-.2-.8-.7-2.6-.2-4.5.6-2.3,1.2-4.1,2.4-6,.2-.3.6-.2.7.2.2,1.3.4,4-.2,7h0Z"/>
-    <path class="st63" d="M274.7,62.4c-.2-.2-.4-.5-.5-.7-2.6-2.7-5.8-4.3-9.5-4.8l-2.3-.2c-5.3,0-7.4.8-7.4.8-4.4,1.2-8.3,3.5-11.4,6.9-4.7,5.2-7.6,13.1-6.2,19.9.9,4.4,3.9,8.1,8.1,9.8,4,1.7,8.5,1.8,12.8,1.4l1.6-.3c10.7-2.7,18.1-13.8,17.9-24.5,0-3.2-1.2-6-3-8.5h0ZM271.2,74c-.5,4.1-2.4,7.8-5.4,10.7-3.6,3.4-8.6,4.8-13.4,4.1-4.2-.7-6.4-3.1-7.1-7.2-.2-1.3,0-2.6.2-3.9.5-3.3,2.2-6.3,4.4-8.8,2.6-2.8,5.8-4.7,9.6-5.1,3.9-.5,8.1.4,10.4,3.8,1.5,2.1,1.8,4.3,1.4,6.7h0c0,0,0,0,0,0Z"/>
+    <path class="st22" d="M227.3,99.6c2.3-2.7,3.3-5.9,2.8-9.4-.7-5.6-7.3-11-11.6-14.7-1.6-1.4-3.2-2.8-4.6-4.4-.7-.8-1.2-1.8-1.4-2.8-.2-1.7.6-3.2,2.1-3.8.9-.4,1.8-.5,2.8-.6,2.6-.2,5.1.2,7.5,1.3,1.9.9,4.7,1,5.5-.4,1.1-1.9,0-4.1-2-5.3-4.2-2.6-9.1-3.4-14.1-2.8-2.8.3-5.4,1.3-7.4,3.2-2.6,2.3-3.2,5.8-2.9,9.3.3,2.6,2,5.2,3.8,7.2,4,4.6,9.7,8.1,12.7,12.4,1.8,2.6,1.4,5.9-.8,8.1s-6.3,4.2-10.1,5.2c-.6.2-1.3.4-1.8.8-.9.6-1.1,1.4-1.1,2.4s.6,2.4,1.9,2.6c.9,0,1.9,0,2.9-.2,5.4-1.2,12.1-3.8,15.8-8h0Z"/>
+    <path class="st55" d="M227.3,99.6c-3.8,4.2-10.3,6.8-15.8,8-.9.2-1.9.3-2.9.2-1.4-.2-1.9-1.3-1.9-2.6s.2-1.8,1.1-2.4c.5-.3,1.1-.7,1.8-.8,3.9-.9,7.4-2.3,10.1-5.2,2.2-2.2,2.5-5.5.8-8.1-3-4.4-8.7-7.8-12.7-12.4-1.7-2-3.4-4.5-3.8-7.2-.4-3.5.2-7,2.9-9.3,2.1-1.8,4.6-2.8,7.4-3.2,4.9-.7,9.8.2,14.1,2.8,1.9,1.2,3.1,3.4,2,5.3-.8,1.4-3.6,1.3-5.5.4-2.4-1.1-4.9-1.5-7.5-1.3-.9,0-1.9.2-2.8.6-1.5.7-2.4,2.2-2.1,3.8.1,1,.7,2,1.4,2.8,1.4,1.7,3,3,4.6,4.4,4.4,3.7,10.9,9.1,11.7,14.7.4,3.6-.5,6.8-2.8,9.4h-.1Z"/>
   </g>
   <g>
-    <path class="st45" d="M302.1,81.9c.3.9.8,1.8,1.5,2.6.5.6,1.2.5,1.7,0,2.3-2.1,5.9-8.1,7.8-5.2,2,3.1,3,8.1,4.1,11.8,0,.4.5.8.8.8.9,0,1-1.4.7-2.8-.5-2.4-1-4.8-1.7-7.2-.7-2.2-2.2-5.9-4.2-6.4-.5-.2-1.2,0-1.8,0-2,.4-4.7,3.7-6,5.6,0,.2-.3.2-.5,0-.6-.5-1.4-5.8-3.8-7.9-3.5-3.1-6.2,4.3-7.2,7.8l-1.1,3.7c0,.4,0,.8-.5.9l-.3-1.8-.3-2.2-.3-3.2c-.2-2.7,0-5.6-1.8-5.5-1.5,0-1.4,1.8-1.2,3.6.4,3.8,1.1,10.2,2.8,13.1.2.4.7.7,1.2.6,1,0,1.7-2.1,2.1-3.4.8-2.4,1.5-4.8,2.5-7.1.6-1.4,1.5-3.8,2.7-3.7.8,0,1.5,2,2,3.3l1,2.6h0ZM330.2,87.1l-2.1-4.7c-.1-.3.1-.6.2-.8l2.9-4.2c.6-.9.5-2.2-.2-2.9-.5-.4-1.1-.3-1.4.2l-2.6,4.1c-.1.2-.3.2-.4.2-.2,0-1.7-3.6-2.7-5.2-.2-.4-.8-.7-1.2-.6-1,0-1.4,1.9-.6,3.2l1.6,2.9c.5.9,1,1.7,1.4,2.7-1.4,2.3-2.6,4.5-3.9,6.8-.4.7-.5,1.6-.2,2.3.2.5,1.1.6,1.5,0l4-6.1,2.3,4c.2.4.6.5,1,.4.8-.2,1.1-1.2.6-2.3h0q0,0,0,0Z"/>
+    <path class="st51" d="M287.1,49.9c-.3-.7-1.1-1.2-1.9-1.3-.9,0-1.7.2-2.2,1-1.8,3-6,5.6-9.2,7-.4.2-.8.3-1.3.2.8-1.5,1.2-3.1,1.3-4.8.2-3.2.2-7.5-1.6-10-.8-1.2-2.2-2-3.8-1.6-1.2.3-2.2,1.2-2.9,2.2-3.3,4.2-4.3,9-3.1,14.2l2.3.2c3.7.5,6.9,2,9.5,4.8,5.4-2,9.5-4.5,12.6-9.5.5-.8.8-1.5.3-2.4h0ZM269.4,52.2c-.5,2.2-1.4,3.2-2,3.5-.2.2-.6,0-.7-.2-.2-.8-.7-2.6-.2-4.5.6-2.3,1.2-4.1,2.4-6,.2-.3.6-.2.7.2.2,1.3.4,4-.2,7h0Z"/>
+    <path class="st65" d="M274.7,62.4c-.2-.2-.4-.5-.5-.7-2.6-2.7-5.8-4.3-9.5-4.8l-2.3-.2c-5.3,0-7.4.8-7.4.8-4.4,1.2-8.3,3.5-11.4,6.9-4.7,5.2-7.6,13.1-6.2,19.9.9,4.4,3.9,8.1,8.1,9.8,4,1.7,8.5,1.8,12.8,1.4l1.6-.3c10.7-2.7,18.1-13.8,17.9-24.5,0-3.2-1.2-6-3-8.5h0v.2ZM271.2,74c-.5,4.1-2.4,7.8-5.4,10.7-3.6,3.4-8.6,4.8-13.4,4.1-4.2-.7-6.4-3.1-7.1-7.2-.2-1.3,0-2.6.2-3.9.5-3.3,2.2-6.3,4.4-8.8,2.6-2.8,5.8-4.7,9.6-5.1,3.9-.5,8.1.4,10.4,3.8,1.5,2.1,1.8,4.3,1.4,6.7h0v-.3Z"/>
+  </g>
+  <g>
+    <path class="st22" d="M302.1,81.9c.3.9.8,1.8,1.5,2.6.5.6,1.2.5,1.7,0,2.3-2.1,5.9-8.1,7.8-5.2,2,3.1,3,8.1,4.1,11.8,0,.4.5.8.8.8.9,0,1-1.4.7-2.8-.5-2.4-1-4.8-1.7-7.2-.7-2.2-2.2-5.9-4.2-6.4-.5-.2-1.2,0-1.8,0-2,.4-4.7,3.7-6,5.6,0,.2-.3.2-.5,0-.6-.5-1.4-5.8-3.8-7.9-3.5-3.1-6.2,4.3-7.2,7.8l-1.1,3.7c0,.4,0,.8-.5.9l-.3-1.8-.3-2.2-.3-3.2c-.2-2.7,0-5.6-1.8-5.5-1.5,0-1.4,1.8-1.2,3.6.4,3.8,1.1,10.2,2.8,13.1.2.4.7.7,1.2.6,1,0,1.7-2.1,2.1-3.4.8-2.4,1.5-4.8,2.5-7.1.6-1.4,1.5-3.8,2.7-3.7.8,0,1.5,2,2,3.3l1,2.6h-.2ZM330.2,87.1l-2.1-4.7c-.1-.3.1-.6.2-.8l2.9-4.2c.6-.9.5-2.2-.2-2.9-.5-.4-1.1-.3-1.4.2l-2.6,4.1c-.1.2-.3.2-.4.2-.2,0-1.7-3.6-2.7-5.2-.2-.4-.8-.7-1.2-.6-1,0-1.4,1.9-.6,3.2l1.6,2.9c.5.9,1,1.7,1.4,2.7-1.4,2.3-2.6,4.5-3.9,6.8-.4.7-.5,1.6-.2,2.3.2.5,1.1.6,1.5,0l4-6.1,2.3,4c.2.4.6.5,1,.4.8-.2,1.1-1.2.6-2.3h-.2Z"/>
     <g>
-      <path class="st17" d="M302.1,81.9l-1-2.6c-.5-1.3-1.1-3.3-2-3.3-1,0-2,2.2-2.7,3.7-1,2.3-1.6,4.7-2.5,7.1-.5,1.4-1.1,3.3-2.1,3.4-.5,0-.9-.2-1.2-.6-1.7-2.8-2.5-9.3-2.8-13.1-.2-1.8-.3-3.5,1.2-3.6,1.9,0,1.5,2.9,1.8,5.5l.3,3.2.3,2.2.3,1.8c.4-.2.4-.6.5-.9l1.1-3.7c1-3.6,3.8-11,7.2-7.8,2.5,2.2,3.2,7.4,3.8,7.9,0,0,.3,0,.5,0,1.4-1.9,4-5.2,6-5.6.5,0,1.2,0,1.8,0,2,.5,3.5,4.2,4.2,6.4.8,2.4,1.2,4.8,1.7,7.2.2,1.4.2,2.8-.7,2.8s-.8-.3-.8-.8c-1-3.8-2.2-8.7-4.1-11.8-1.9-3-5.5,3.1-7.8,5.2-.5.4-1.2.5-1.7,0-.7-.7-1.2-1.6-1.5-2.6h0Z"/>
-      <path class="st17" d="M330.2,87.1c.5,1.1.1,2.2-.6,2.3-.4,0-.8,0-1-.4l-2.3-4-4,6.1c-.4.5-1.2.4-1.5,0-.4-.8-.1-1.6.2-2.3,1.2-2.3,2.5-4.6,3.9-6.8-.3-.9-.9-1.8-1.4-2.7l-1.6-2.9c-.7-1.3-.4-3.2.6-3.2.5,0,1,.2,1.2.6,1,1.7,2.5,5.1,2.7,5.2s.3,0,.4-.2l2.6-4.1c.3-.5,1-.6,1.4-.2.9.8.9,2,.2,2.9l-2.9,4.2c-.1.2-.4.6-.2.8l2.1,4.7h0q0,0,0,0Z"/>
+      <path class="st17" d="M302.1,81.9l-1-2.6c-.5-1.3-1.1-3.3-2-3.3s-2,2.2-2.7,3.7c-1,2.3-1.6,4.7-2.5,7.1-.5,1.4-1.1,3.3-2.1,3.4-.5,0-.9-.2-1.2-.6-1.7-2.8-2.5-9.3-2.8-13.1-.2-1.8-.3-3.5,1.2-3.6,1.9,0,1.5,2.9,1.8,5.5l.3,3.2.3,2.2.3,1.8c.4-.2.4-.6.5-.9l1.1-3.7c1-3.6,3.8-11,7.2-7.8,2.5,2.2,3.2,7.4,3.8,7.9h.5c1.4-1.9,4-5.2,6-5.6h1.8c2,.5,3.5,4.2,4.2,6.4.8,2.4,1.2,4.8,1.7,7.2.2,1.4.2,2.8-.7,2.8s-.8-.3-.8-.8c-1-3.8-2.2-8.7-4.1-11.8-1.9-3-5.5,3.1-7.8,5.2-.5.4-1.2.5-1.7,0-.7-.7-1.2-1.6-1.5-2.6h.2Z"/>
+      <path class="st17" d="M330.2,87.1c.5,1.1.1,2.2-.6,2.3-.4,0-.8,0-1-.4l-2.3-4-4,6.1c-.4.5-1.2.4-1.5,0-.4-.8-.1-1.6.2-2.3,1.2-2.3,2.5-4.6,3.9-6.8-.3-.9-.9-1.8-1.4-2.7l-1.6-2.9c-.7-1.3-.4-3.2.6-3.2s1,.2,1.2.6c1,1.7,2.5,5.1,2.7,5.2s.3,0,.4-.2l2.6-4.1c.3-.5,1-.6,1.4-.2.9.8.9,2,.2,2.9l-2.9,4.2c-.1.2-.4.6-.2.8l2.1,4.7h.2Z"/>
     </g>
   </g>
   <path class="st49" d="M1440,1001.6v112.4H0v-115.4c220-44,378,43,606,11,250-37,432,37,630-9,95-23,159-16,204,1Z"/>
   <g id="equipo">
-    <rect class="st45" x="48" y="1091" width="1344" height="568" rx="27" ry="27"/>
-    <text class="st40" transform="translate(86.9993 1148.9792)"><tspan x="0" y="0">EQUIPO</tspan></text>
-    <text class="st38" transform="translate(84.9993 1200.9792)"><tspan x="0" y="0">Una mirada integral</tspan></text>
-    <rect class="st44" x="86" y="1225" width="390" height="395" rx="22" ry="22"/>
-    <rect class="st44" x="525" y="1225" width="390" height="395" rx="22" ry="22"/>
-    <rect class="st44" x="964" y="1225" width="390" height="395" rx="22" ry="22"/>
-    <g class="st59">
-      <image class="st24" width="194" height="87" transform="translate(70.2749 1224.9793) scale(2.1724)" xlink:href="itaso_landing_editable-2.png"/>
+    <rect class="st22" x="48" y="1091" width="1344" height="568" rx="27" ry="27"/>
+    <g class="st31">
+      <text class="st43" transform="translate(86.9993 1148.9792)"><tspan x="0" y="0">EQUIPO</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st44" transform="translate(84.9993 1200.9792)"><tspan x="0" y="0">Una mirada integral</tspan></text>
+    </g>
+    <rect class="st19" x="86" y="1225" width="390" height="395" rx="22" ry="22"/>
+    <rect class="st19" x="525" y="1225" width="390" height="395" rx="22" ry="22"/>
+    <rect class="st19" x="964" y="1225" width="390" height="395" rx="22" ry="22"/>
+    <g class="st60">
+      <image class="st31" width="194" height="87" transform="translate(70.2749 1224.9792) scale(2.1724)" xlink:href="itaso_landing_editable-2.png"/>
+    </g>
+    <g class="st62">
+      <image class="st31" width="195" height="87" transform="translate(508.1887 1224.9792) scale(2.1724)" xlink:href="itaso_landing_editable-3.png"/>
     </g>
     <g class="st61">
-      <image class="st24" width="195" height="87" transform="translate(508.1887 1224.9793) scale(2.1724)" xlink:href="itaso_landing_editable-3.png"/>
+      <image class="st31" width="192" height="87" transform="translate(950.4473 1224.9792) scale(2.1724)" xlink:href="itaso_landing_editable-4.png"/>
     </g>
-    <g class="st60">
-      <image class="st24" width="192" height="87" transform="translate(950.4473 1224.9793) scale(2.1724)" xlink:href="itaso_landing_editable-4.png"/>
-    </g>
-    <circle class="st46" cx="140" cy="1409" r="40"/>
-    <circle class="st62" cx="140" cy="1409" r="30"/>
-    <circle class="st46" cx="579" cy="1409" r="40"/>
-    <circle class="st66" cx="579" cy="1409" r="30"/>
-    <circle class="st46" cx="1018" cy="1409" r="40"/>
-    <circle class="st57" cx="1018" cy="1409" r="30"/>
+    <circle class="st23" cx="140" cy="1409" r="40"/>
+    <circle class="st64" cx="140" cy="1409" r="30"/>
+    <circle class="st23" cx="579" cy="1409" r="40"/>
+    <circle class="st67" cx="579" cy="1409" r="30"/>
+    <circle class="st23" cx="1018" cy="1409" r="40"/>
+    <circle class="st58" cx="1018" cy="1409" r="30"/>
     <path class="st3" d="M128,1409c-2-7,1-13,8-13s6,3,8,3c4-3,11-3,13,5,3,12-5,20-11,20-4-2-6-2-9,0-6-1-9-6-9-15Z"/>
     <path class="st12" d="M141,1398c0-7,2-11,9-12"/>
     <path class="st6" d="M578,1396c-9-8-19,3-14,11-6,8,0,19,9,18,4,5,10,2,10-3v-24c0-5-3-7-5-2ZM581,1396c9-8,19,3,14,11,6,8,0,19-9,18-4,5-10,2-10-3"/>
     <path class="st8" d="M570,1405l6,4M570,1417l6-3M589,1405l-6,4M589,1417l-6-3"/>
     <path class="st1" d="M1018,1400c-8-6-16-5-23-3v23c9-2,17,0,23,5,7-5,15-7,23-5v-23c-8-2-16-3-23,3ZM1018,1400v25"/>
-    <text class="st36" transform="translate(109.9991 1483.9793)"><tspan x="0" y="0">Nutrición</tspan></text>
-    <text class="st35" transform="translate(109.9991 1518.9793)"><tspan x="0" y="0">Contenido basado en evidencia</tspan></text>
-    <text class="st35" transform="translate(109.9991 1545.9793)"><tspan x="0" y="0">y lenguaje cotidiano.</tspan></text>
-    <text class="st23" transform="translate(109.9991 1593.9793)"><tspan x="0" y="0">Explorar</tspan></text>
+    <g class="st31">
+      <text class="st41" transform="translate(109.9991 1483.9792)"><tspan x="0" y="0">Nutrición</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st40" transform="translate(109.9991 1518.9792)"><tspan x="0" y="0">Contenido basado en evidencia</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st40" transform="translate(109.9991 1545.9792)"><tspan x="0" y="0">y lenguaje cotidiano.</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st30" transform="translate(109.9991 1593.9792)"><tspan x="0" y="0">Explorar</tspan></text>
+    </g>
     <path class="st11" d="M201,1587h16M211,1581l6,6-6,6"/>
-    <text class="st36" transform="translate(548.999 1483.9793)"><tspan x="0" y="0">Psicología</tspan></text>
-    <text class="st35" transform="translate(548.999 1518.9793)"><tspan x="0" y="0">Orientación respetuosa,</tspan></text>
-    <text class="st35" transform="translate(548.999 1545.9793)"><tspan x="0" y="0">libre de estigma.</tspan></text>
-    <text class="st42" transform="translate(548.999 1593.9793)"><tspan x="0" y="0">Conoce al equipo</tspan></text>
+    <g class="st31">
+      <text class="st41" transform="translate(548.999 1483.9792)"><tspan x="0" y="0">Psicología</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st40" transform="translate(548.999 1518.9792)"><tspan x="0" y="0">Orientación respetuosa,</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st40" transform="translate(548.999 1545.9792)"><tspan x="0" y="0">libre de estigma.</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st48" transform="translate(548.999 1593.9792)"><tspan x="0" y="0">Conoce al equipo</tspan></text>
+    </g>
     <path class="st4" d="M730,1587h16M740,1581l6,6-6,6"/>
-    <text class="st36" transform="translate(987.9991 1483.9793)"><tspan x="0" y="0">Educación</tspan></text>
-    <text class="st35" transform="translate(987.9991 1518.9793)"><tspan x="0" y="0">Herramientas útiles para</tspan></text>
-    <text class="st35" transform="translate(987.9991 1545.9793)"><tspan x="0" y="0">aprender haciendo.</tspan></text>
-    <text class="st37" transform="translate(987.9991 1593.9793)"><tspan x="0" y="0">Explorar</tspan></text>
+    <g class="st31">
+      <text class="st41" transform="translate(987.9991 1483.9792)"><tspan x="0" y="0">Educación</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st40" transform="translate(987.9991 1518.9792)"><tspan x="0" y="0">Herramientas útiles para</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st40" transform="translate(987.9991 1545.9792)"><tspan x="0" y="0">aprender haciendo.</tspan></text>
+    </g>
+    <g class="st31">
+      <text class="st42" transform="translate(987.9991 1593.9792)"><tspan x="0" y="0">Explorar</tspan></text>
+    </g>
     <path class="st16" d="M1079,1587h16M1089,1581l6,6-6,6"/>
   </g>
+  <circle class="st66" cx="1615.2" cy="819.1" r="96"/>
+  <circle class="st73" cx="1615.2" cy="1029.6" r="96"/>
+  <circle class="st56" cx="1696.4" cy="906" r="96"/>
+  <circle class="st70" cx="1792.4" cy="1049.2" r="96"/>
 </svg>
