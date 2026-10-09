@@ -36,7 +36,17 @@
     if (!inVisualGallery) app.focus({ preventScroll: true });
     window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     updateNav();
+    updateNnaAccess();
     nav.querySelectorAll('a').forEach(link => { if (link.getAttribute('href') === `#${Router.current()}`) link.setAttribute('aria-current', 'page'); });
+  }
+
+  // Acceso global a la experiencia NNA: visible en el Home y en toda el área de
+  // cuidadores, oculto en cualquier ruta de niñas, niños y adolescentes.
+  function updateNnaAccess() {
+    const link = document.querySelector('.nna-access');
+    if (!link) return;
+    const path = Router.current();
+    link.hidden = !(path === '/inicio' || path.startsWith('/cuidadores'));
   }
 
   function updateNav() {
