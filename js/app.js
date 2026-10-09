@@ -260,6 +260,8 @@
     const r = ITASO_DATA.recipes.find(x => x.id === id); if (!r) return Router.go('/cuidadores/recetas');
     const saved = (Store.get('savedRecipes') || []).includes(id);
     const typeLabels = { desayuno: 'Desayuno', comida: 'Comida', cena: 'Cena', lunch: 'Lunch', colacion: 'Colación', bebida: 'Bebida' };
+    const snack = window.ITASO_source && window.ITASO_source('unicefSchoolSnacks');
+    const advice = window.ITASO_source && window.ITASO_source('imssNutritionAdvice');
     render(`${head('Receta', r.name, r.description)}
       <section class="section compact"><div class="container">
         <div class="recipe-meta">
@@ -278,7 +280,7 @@
           <div class="grid two">${r.substitutions.map(s => `<article class="card substitution-card"><p class="eyebrow">En lugar de ${esc(s.what)}</p><p>${esc(s.replace)}</p></article>`).join('')}</div>
         </section>
         <aside class="recipe-serve"><span>PUEDE SERVIRTE SI</span><p>${esc(r.sirveSi)}</p></aside>
-        <p class="recipe-source">Ideas de preparación basadas en el <a href="https://www.unicef.org/mexico/informes/recetario-de-refrigerios" target="_blank" rel="noopener noreferrer">Recetario de refrigerios de UNICEF</a> y en los <a href="https://www.imss.gob.mx/salud-en-linea/nutricion/consejos" target="_blank" rel="noopener noreferrer">Consejos de nutrición del IMSS</a>.</p>
+        <p class="recipe-source">Ideas de preparación basadas en el <a href="${esc(snack.url)}" target="_blank" rel="noopener noreferrer">${esc(snack.title)} de UNICEF</a> y en los <a href="${esc(advice.url)}" target="_blank" rel="noopener noreferrer">${esc(advice.title)} del IMSS</a>.</p>
         <div class="narrow button-row"><button class="button primary" type="button" data-save-recipe="${id}">${saved ? 'Quitar de guardadas' : 'Guardar receta'}</button><a class="button" href="#/cuidadores/recetas">Ver otras recetas</a></div>
       </div></section>`);
   }
@@ -319,25 +321,21 @@
 
   function resourcePage() {
     const g = window.ITASO_GUIDE;
-    if (!g) { render(head('Recursos y guías', 'Materiales para consultar y compartir')); return; }
-    render(`${head('Recursos y guías', 'Materiales para consultar y compartir', 'Una guía práctica para acompañar decisiones cotidianas. Puedes leerla completa o volver a la sección que necesites.')}
+    if (!g) { render(head('Recursos y guías', 'Claridad para entender')); return; }
+    const pageInfo = g.page || {};
+    const card = g.card || {};
+    render(`${head('Recursos y guías', pageInfo.title || 'Claridad para llevar contigo', pageInfo.lead || '')}
       <section class="section compact"><div class="container">
         <article class="card guide-card">
           <div class="guide-card-head">
             <span class="icon-disc tone-${g.accent}">${icon('book')}</span>
-            <span class="resource-badge">${esc(g.type)} · ${esc(g.time)}</span>
+            <span class="resource-badge">Guía</span>
           </div>
-          <h2>${esc(g.title)}</h2>
-          <p class="lead">${esc(g.description)}</p>
-          <ul class="guide-includes">${g.includes.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
-          <div class="button-row"><button class="button primary" type="button" data-open-guide>Abrir la guía</button></div>
+          <h2>${esc(card.name || g.title)}</h2>
+          <p class="lead">${esc(card.text || '')}</p>
+          <p class="muted">${esc(card.micro || '')}</p>
+          <div class="button-row"><button class="button primary" type="button" data-open-guide>${esc(card.cta || 'Conocer la guía')} ${icon('arrow')}</button></div>
         </article>
-        <section class="guide-contents">
-          <p class="eyebrow">Contenido de la guía</p>
-          <h2>Doce secciones breves</h2>
-          <p class="muted">Toca cualquier sección para abrir la guía completa.</p>
-          <div class="guide-contents-grid">${g.sections.map(s => `<button class="guide-section" type="button" data-open-guide><span>${esc(s.n)}</span><strong>${esc(s.title)}</strong></button>`).join('')}</div>
-        </section>
       </div></section>`);
   }
 

@@ -18,7 +18,7 @@
       ],
       remember: 'Un desayuno posible empieza por lo que ya tienes y por el tiempo real que tienes hoy.',
       cta: { label: 'Ver ideas de desayuno', href: '#/cuidadores/recetas' },
-      source: { institution: 'Instituto Mexicano del Seguro Social', title: 'Consejos de nutrición', url: 'https://www.imss.gob.mx/salud-en-linea/nutricion/consejos' }
+      source: window.ITASO_source('imssNutritionAdvice')
     },
     {
       id: 'lunch-para-llevar',
@@ -36,7 +36,7 @@
       ],
       remember: 'Un buen lunch no es el más elaborado, sino el que se puede armar y llevar sin complicaciones.',
       cta: { label: 'Ir a recetas para llevar', href: '#/cuidadores/recetas' },
-      source: { institution: 'UNICEF', title: 'Recetario de refrigerios escolares', url: 'https://www.unicef.org/mexico/informes/recetario-de-refrigerios' }
+      source: window.ITASO_source('unicefSchoolSnacks')
     },
     {
       id: 'poca-despensa',
@@ -54,7 +54,7 @@
       ],
       remember: 'Con pocos ingredientes todavía se puede armar una comida: la clave es combinar lo que sí existe.',
       cta: { label: 'Ver recetas con lo que hay', href: '#/cuidadores/recetas' },
-      source: { institution: 'Gobierno de México · Secretaría de Salud', title: 'Guías Alimentarias Saludables y Sostenibles para la Población Mexicana 2025', url: 'https://www.gob.mx/salud/sinsamac/documentos/guias-alimentarias-saludables-y-sostenibles-para-la-poblacion-mexicana-2025' }
+      source: window.ITASO_source('dietaryGuidelines2025')
     },
     {
       id: 'cena-sencilla',
@@ -72,7 +72,7 @@
       ],
       remember: 'Una cena sencilla puede ser ligera, rápida y hecha con lo que sobró del día.',
       cta: { label: 'Ver ideas de cena', href: '#/cuidadores/recetas' },
-      source: { institution: 'Instituto Mexicano del Seguro Social', title: 'Consejos de nutrición', url: 'https://www.imss.gob.mx/salud-en-linea/nutricion/consejos' }
+      source: window.ITASO_source('imssNutritionAdvice')
     },
     {
       id: 'que-bebida',
@@ -90,7 +90,7 @@
       ],
       remember: 'Para hidratarte, el agua simple puede ser tu primera opción. Si eliges otra bebida, revisa qué contiene.',
       cta: { label: 'Comparar dos bebidas', href: '#/cuidadores/decide-con-lo-que-tienes' },
-      source: { institution: 'Gobierno de México · Secretaría de Salud', title: 'Guías Alimentarias Saludables y Sostenibles para la Población Mexicana 2025', url: 'https://www.gob.mx/salud/sinsamac/documentos/guias-alimentarias-saludables-y-sostenibles-para-la-poblacion-mexicana-2025' }
+      source: window.ITASO_source('dietaryGuidelines2025')
     },
     {
       id: 'comparar-productos',
@@ -108,7 +108,7 @@
       ],
       remember: 'Antes de comparar dos productos, primero revisa que estés mirando la misma cantidad.',
       cta: { label: 'Comparar paso a paso', href: '#/cuidadores/decide-con-lo-que-tienes' },
-      source: { institution: 'Comisión Federal para la Protección contra Riesgos Sanitarios', title: 'Etiquetado frontal de alimentos y bebidas (NOM-051)', url: 'https://www.gob.mx/cofepris/acciones-y-programas/etiquetado-frontal-de-alimentos-y-bebidas-no-alcoholicas-preenvasadas' }
+      source: window.ITASO_source('nom051')
     },
     {
       id: 'colacion-media',
@@ -126,7 +126,7 @@
       ],
       remember: 'Una colación útil es la que se puede llevar y comer con facilidad cuando aparece el hambre.',
       cta: { label: 'Ver ideas de colación', href: '#/cuidadores/recetas' },
-      source: { institution: 'UNICEF', title: 'Recetario de refrigerios escolares', url: 'https://www.unicef.org/mexico/informes/recetario-de-refrigerios' }
+      source: window.ITASO_source('unicefSchoolSnacks')
     },
     {
       id: 'sin-refrigeracion',
@@ -144,7 +144,7 @@
       ],
       remember: 'Sin refrigeración, elige alimentos que se conserven bien y evita los que necesitan frío.',
       cta: { label: 'Ver recetas sin refrigeración', href: '#/cuidadores/recetas' },
-      source: { institution: 'UNICEF', title: 'Recetario de refrigerios escolares', url: 'https://www.unicef.org/mexico/informes/recetario-de-refrigerios' }
+      source: window.ITASO_source('unicefSchoolSnacks')
     },
     {
       id: 'conversar-comer',
@@ -162,7 +162,7 @@
       ],
       remember: 'Acompañar es ofrecer, conversar y respetar las señales, no obligar a terminar el plato.',
       cta: { label: 'Explorar recursos y guías', href: '#/cuidadores/recursos' },
-      source: { institution: 'Instituto Mexicano del Seguro Social', title: 'Consejos de nutrición', url: 'https://www.imss.gob.mx/salud-en-linea/nutricion/consejos' }
+      source: window.ITASO_source('imssNutritionAdvice')
     },
     {
       id: 'aprovechar-sobras',
@@ -180,7 +180,7 @@
       ],
       remember: 'Reinventar lo que sobró puede ahorrar dinero y evitar que la comida se desperdicie.',
       cta: { label: 'Ver ideas para aprovechar', href: '#/cuidadores/recetas' },
-      source: { institution: 'Gobierno de México · Secretaría de Salud', title: 'Guías Alimentarias Saludables y Sostenibles para la Población Mexicana 2025', url: 'https://www.gob.mx/salud/sinsamac/documentos/guias-alimentarias-saludables-y-sostenibles-para-la-poblacion-mexicana-2025' }
+      source: window.ITASO_source('dietaryGuidelines2025')
     }
   ];
 })();

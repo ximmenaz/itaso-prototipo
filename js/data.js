@@ -1,4 +1,5 @@
 (function () {
+  const S = ids => (window.ITASO_sources ? window.ITASO_sources(ids) : []);
   window.ITASO_DATA = {
     products: {
       alimentos: [
@@ -66,10 +67,7 @@
         ],
         remember: 'Antes de decidir entre dos productos, primero compara cantidades equivalentes.',
         cta: { label: 'Usar este criterio para comparar', href: '#/cuidadores/decide-con-lo-que-tienes' },
-        sources: [
-          { institution: 'Diario Oficial de la Federación', title: 'NOM-051-SCFI/SSA1-2010', url: 'https://www.dof.gob.mx/2020/SEECO/NOM_051.pdf' },
-          { institution: 'Instituto Mexicano del Seguro Social', title: 'Nutrición', url: 'https://www.imss.gob.mx/salud-en-linea/nutricion' }
-        ]
+        sources: S(['nom051', 'imssNutrition'])
       },
       grupos: {
         accent: 'green',
@@ -92,10 +90,7 @@
         ],
         remember: 'En lugar de preguntarte si una comida es “perfecta”, observa: ¿qué grupos ya están presentes? ¿Qué podrías complementar con lo que tienes hoy?',
         cta: { label: 'Ver ideas con lo que tengo', href: '#/cuidadores/recetas' },
-        sources: [
-          { institution: 'Instituto Mexicano del Seguro Social', title: 'Plato del Bien Comer Saludable y Sostenible', url: 'https://www.imss.gob.mx/salud-en-linea/platobiencomer' },
-          { institution: 'Secretaría de Salud · INSP · UNICEF', title: 'Guías Alimentarias Saludables y Sostenibles para la Población Mexicana 2025', url: 'https://www.gob.mx/salud/sinsamac/documentos/guias-alimentarias-saludables-y-sostenibles-para-la-poblacion-mexicana-2025' }
-        ]
+        sources: S(['platoBienComer', 'dietaryGuidelines2025'])
       },
       etiquetado: {
         accent: 'red',
@@ -118,10 +113,7 @@
         ],
         remember: 'La etiqueta no decide por ti. Te ayuda a observar diferencias y obtener más información antes de elegir.',
         cta: { label: 'Comparar dos opciones', href: '#/cuidadores/decide-con-lo-que-tienes' },
-        sources: [
-          { institution: 'Secretaría de Salud', title: 'Etiquetado frontal de alimentos y bebidas', url: 'https://www.gob.mx/promosalud/acciones-y-programas/etiquetado-de-alimentos' },
-          { institution: 'Diario Oficial de la Federación', title: 'NOM-051-SCFI/SSA1-2010', url: 'https://www.dof.gob.mx/2020/SEECO/NOM_051.pdf' }
-        ]
+        sources: S(['nom051', 'foodLabeling'])
       },
       hidratacion: {
         accent: 'blue',
@@ -143,11 +135,7 @@
         ],
         remember: 'Para la hidratación cotidiana, el agua simple puede ser tu punto de partida. Si eliges otra bebida, utiliza la información disponible para comprender qué contiene.',
         cta: { label: 'Decidir entre bebidas', href: '#/cuidadores/decide-con-lo-que-tienes' },
-        sources: [
-          { institution: 'Organización Mundial de la Salud', title: 'Alimentación saludable', url: 'https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet' },
-          { institution: 'Secretaría de Salud · INSP · UNICEF', title: 'Guías Alimentarias Saludables y Sostenibles para la Población Mexicana 2025', url: 'https://www.gob.mx/salud/sinsamac/documentos/guias-alimentarias-saludables-y-sostenibles-para-la-poblacion-mexicana-2025' },
-          { institution: 'Secretaría de Salud', title: 'Etiquetado frontal de alimentos y bebidas', url: 'https://www.gob.mx/promosalud/acciones-y-programas/etiquetado-de-alimentos' }
-        ]
+        sources: S(['dietaryGuidelines2025', 'whoHealthyDiet', 'foodLabeling'])
       },
       hambre: {
         accent: 'lime',
@@ -171,10 +159,7 @@
         remember: 'La persona cuidadora ofrece y acompaña. La niña o el niño también puede comunicar cuándo tiene hambre y cuándo se siente satisfecho.',
         note: 'Esta información es orientación general. No sustituye una valoración médica o nutricional. Si existe preocupación por cuánto, qué o cómo está comiendo una niña, niño o adolescente, recomendar consultar a un profesional de salud.',
         cta: { label: 'Explorar recursos para conversar en familia', href: '#/cuidadores/recursos' },
-        sources: [
-          { institution: 'American Academy of Pediatrics · HealthyChildren.org', title: 'Making Sure Your Child Is Eating Enough', url: 'https://www.healthychildren.org/spanish/healthy-living/nutrition/paginas/making-sure-your-child-is-eating-enough.aspx' },
-          { institution: 'Centers for Disease Control and Prevention', title: 'Signs Your Child Is Hungry or Full', url: 'https://www.cdc.gov/infant-toddler-nutrition/mealtime/signs-your-child-is-hungry-or-full.html' }
-        ]
+        sources: S(['healthyChildrenEatingEnough', 'cdcHungerFullness'])
       }
     },
     activityTopics: {
@@ -196,10 +181,7 @@
           { t: 'QUE SEA POSIBLE IMPORTA', d: 'Una actividad que se adapta al tiempo, espacio y realidad de la familia puede ser más fácil de incorporar.' }
         ],
         remember: 'Moverse puede empezar con algo tan sencillo como cambiar algunos minutos sentados por una actividad que implique movimiento.',
-        sources: [
-          { institution: 'Organización Mundial de la Salud', title: 'Physical activity', url: 'https://www.who.int/health-topics/noncommunicable-diseases/physical-activity' },
-          { institution: 'IMSS', title: 'Guía Técnica Fundamentos para la Orientación en Actividad Física', url: 'https://www.imss.gob.mx/sites/all/statics/salud/guias_salud/Guia-Tecnica-Actividad-Fisica-2024.pdf' }
-        ]
+        sources: S(['whoPhysicalActivity', 'imssHealthGuides'])
       },
       cuanto: {
         accent: 'green',
@@ -221,10 +203,7 @@
         note: 'Presentar estas cifras como recomendaciones generales de salud pública: no crean metas individuales, no diagnostican y no se convierten automáticamente en una rutina personalizada.',
         remember: 'Más que buscar un día perfecto, busca oportunidades frecuentes para moverse.',
         cta: { label: 'Ver recursos y guías', href: '#/cuidadores/recursos' },
-        sources: [
-          { institution: 'OMS', title: 'Directrices sobre actividad física y hábitos sedentarios', url: 'https://www.who.int/es/publications/i/item/9789240014886' },
-          { institution: 'CDC', title: 'Child Activity: An Overview', url: 'https://www.cdc.gov/physical-activity-basics/guidelines/children.html' }
-        ]
+        sources: S(['whoPhysicalActivityGuidelines'])
       },
       intensidad: {
         accent: 'blue',
@@ -244,9 +223,7 @@
           { t: 'NO ES UNA MEDICIÓN MÉDICA', d: 'La intensidad es una forma sencilla de describir la actividad; no sustituye una valoración médica ni una prueba de esfuerzo.' }
         ],
         remember: 'No todas las actividades necesitan sentirse igual. La variedad también forma parte del movimiento.',
-        sources: [
-          { institution: 'OMS', title: 'Physical activity', url: 'https://www.who.int/health-topics/noncommunicable-diseases/physical-activity' }
-        ]
+        sources: S(['whoPhysicalActivity'])
       },
       sedentarismo: {
         accent: 'red',
@@ -266,9 +243,7 @@
         ],
         remember: 'No necesitas eliminar las actividades sentadas: busca momentos para levantarse, cambiar de postura y moverse.',
         cta: { label: 'Ver recursos de movimiento', href: '#/cuidadores/recursos' },
-        sources: [
-          { institution: 'OMS', title: 'WHO Guidelines on Physical Activity and Sedentary Behaviour', url: 'https://www.who.int/publications-detail-redirect/9789240015128' }
-        ]
+        sources: S(['whoPhysicalActivityGuidelines'])
       },
       familia: {
         accent: 'lime',
@@ -288,9 +263,7 @@
         ],
         remember: 'Moverse en familia puede ser una oportunidad de convivencia, no una obligación.',
         cta: { label: 'Ver ideas para tu día', href: '#/cuidadores/recetas' },
-        sources: [
-          { institution: 'CDC', title: 'Physical Activity Guidelines for School-Aged Children and Adolescents', url: 'https://www.cdc.gov/physical-activity-education/guidelines/index.html' }
-        ]
+        sources: S(['whoPhysicalActivityGuidelines'])
       }
     },
   };

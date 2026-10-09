@@ -1,42 +1,140 @@
-/* Guía principal de "Recursos y guías": Claridad para entender.
-   Una guía práctica que se puede consultar, compartir y volver a abrir. */
+/* Guía única de "Recursos y guías": Claridad para entender.
+   No es una biblioteca de archivos: una sola guía que se explica, se
+   comparte en familia y se puede llevar. Fuentes tomadas de Alimentación. */
 (function () {
   window.ITASO_GUIDE = {
     id: 'claridad-para-entender',
     accent: 'orange',
-    kicker: 'Guía · Cuidadores',
-    type: 'Guía',
-    time: '15 min',
+
+    page: {
+      title: 'Claridad para llevar contigo',
+      lead: 'Una guía sencilla para comprender, conversar y tomar decisiones cotidianas sobre alimentación y movimiento en familia.'
+    },
+
+    card: {
+      name: 'Claridad para entender',
+      text: 'Una guía para acompañar a tu familia en decisiones cotidianas sobre alimentación y movimiento.',
+      micro: 'Entiende los conceptos principales de ITASO, encuentra una forma sencilla de explicárselos a niñas y niños y llévatelos contigo para consultarlos cuando los necesites.',
+      cta: 'Conocer la guía'
+    },
+
+    kicker: 'Recursos y guías',
     title: 'Claridad para entender',
-    subtitle: 'Una guía práctica para acompañar decisiones cotidianas sobre alimentación y movimiento.',
-    description: 'Una guía para consultar, compartir y volver a abrir cuando lo necesites.',
-    intro: 'No se trata de hacerlo perfecto, sino de mirar lo que sí es posible hoy. Cada familia decide con el tiempo, el presupuesto y la disponibilidad que tiene. Esta guía reúne criterios sencillos para acompañar esas decisiones sin juicios ni respuestas únicas.',
-    intro2: 'Puedes leerla completa de una vez o volver a la sección que necesites. Las secciones no son pasos obligatorios: son referencias para tener a mano.',
-    intro3: 'Pensada para personas cuidadoras que toman decisiones cotidianas con recursos reales.',
-    includes: [
-      'Doce secciones breves y consultables',
-      'Criterios para decidir con lo que hay en casa',
-      'Referencias para leer etiquetas y comparar opciones',
-      'Ideas para acompañar la alimentación y el movimiento',
-      'Cuándo conviene consultar a un profesional'
-    ],
+    subtitle: 'Una guía para hablar, comprender y decidir en familia.',
+    intro: 'No necesitas saberlo todo sobre nutrición o actividad física. Esta guía reúne ideas clave de ITASO en un lenguaje cotidiano para que puedas entenderlas, explicarlas en familia y utilizarlas en situaciones reales.',
+
+    how: {
+      label: '¿Cómo funciona?',
+      hero: '3 pasos',
+      chips: ['Entiendo', 'Se lo cuento', 'Lo hacemos juntos'],
+      items: [
+        { label: 'Entiendo', text: 'Primero te explicamos cada tema con palabras sencillas.' },
+        { label: 'Se lo cuento', text: 'Te damos una forma cercana de hablarlo con niñas y niños.' },
+        { label: 'Lo hacemos juntos', text: 'Incluimos una pequeña pregunta o actividad para llevar la idea a la vida cotidiana.' }
+      ]
+    },
+
+    contentsTitle: 'Contenidos de la guía',
+
     sections: [
-      { n: '01', title: 'Decidir no es acertar siempre', text: 'Decidir sobre alimentación no significa encontrar la opción perfecta. Significa elegir lo más útil según el momento: tiempo, presupuesto, lo que hay en casa y los gustos de la familia. Una buena decisión puede repetirse o cambiarse sin culpa.' },
-      { n: '02', title: 'Empezar por lo que ya tienes', text: 'Antes de comprar, revisa qué hay en la despensa y el refrigerador. Partir de lo disponible suele ahorrar dinero, tiempo y viajes, y ayuda a no desperdiciar lo que ya está en casa.' },
-      { n: '03', title: 'Combinar en lugar de calcular', text: 'No necesitas contar calorías para armar una comida. Observa si hay variedad: una verdura o fruta, un cereal o tubérculo, una proteína y algo de grasa saludable. Combinar grupos aporta distintos nutrimentos.' },
-      { n: '04', title: 'Las porciones son referencias', text: 'Una porción es una cantidad sugerida o habitual, no una regla rígida. En productos preenvasados, la información puede declararse por 100 g o 100 ml o por porción. Revisar esa referencia ayuda a interpretar la etiqueta.' },
-      { n: '05', title: 'Leer una etiqueta en tres pasos', text: 'Primero observa los sellos de advertencia. Después revisa la porción o la cantidad de referencia. Al final, mira la lista de ingredientes. Con esos tres datos ya puedes formarte una idea sin memorizar cada número.' },
-      { n: '06', title: 'Comparar con la misma cantidad', text: 'Para comparar dos productos, usa la misma cantidad de referencia, por ejemplo por 100 g o 100 ml, o porciones equivalentes. Si comparas cantidades distintas, los números no son directamente comparables.' },
-      { n: '07', title: 'El agua como punto de partida', text: 'Para la hidratación cotidiana, el agua simple puede ser la primera opción. Si eliges otra bebida, revisa cuánta azúcar contiene y compara cantidades equivalentes. Preparar bebidas en casa da más control sobre lo que se agrega.' },
-      { n: '08', title: 'El tiempo también es un ingrediente', text: 'Una receta que se puede hacer con lo que está listo rinde más que una perfecta que no se alcanza a preparar. Si un día hay más tiempo, adelanta tareas: lava, corta o cocina de más para facilitar los siguientes días.' },
-      { n: '09', title: 'Aprovechar y no desperdiciar', text: 'Las sobras bien conservadas pueden convertirse en una comida nueva: rellenos, sopas, tostadas o mezclas. Guardar lo más antiguo al frente ayuda a usarlo antes de que se eche a perder.' },
-      { n: '10', title: 'Acompañar sin presión', text: 'La persona adulta ofrece y acompaña; la niña o el niño también expresa cuánto quiere comer de lo que se le ofrece. Evitar obligar a terminar el plato y no usar la comida como premio o castigo respeta sus señales de hambre y saciedad.' },
-      { n: '11', title: 'El movimiento cuenta aunque no sea ejercicio', text: 'Caminar, jugar, bailar o trasladarse también son actividad física. Para niñas, niños y adolescentes, la recomendación general es un promedio de al menos 60 minutos al día de actividad moderada a vigorosa, acumulados durante la semana. Incluso pausas cortas cuentan.' },
-      { n: '12', title: 'Cuándo buscar apoyo profesional', text: 'Esta guía es orientación general y no sustituye una valoración médica o nutricional. Si existe preocupación por cuánto, qué o cómo come una niña, niño o adolescente, o por su crecimiento, conviene consultar con un profesional de salud.' }
+      {
+        n: '01',
+        title: 'EMPEZAR DESDE TU REALIDAD',
+        desc: 'Tiempo, presupuesto y disponibilidad cambian todos los días. Empezamos por reconocer lo que hoy sí es posible.',
+        say: '“Hoy vamos a ver qué tenemos y qué podemos hacer con eso.”',
+        together: 'Pregúntense “¿Qué tenemos hoy?”'
+      },
+      {
+        n: '02',
+        title: 'UNA COMIDA POSIBLE',
+        desc: 'En lugar de buscar una comida perfecta, observa qué alimentos ya están presentes y qué podrías complementar.',
+        say: '“Vamos a ver qué cosas diferentes podemos juntar.”',
+        together: 'Reconozcan juntos los alimentos que ya hay disponibles.'
+      },
+      {
+        n: '03',
+        title: 'CONOCER LOS GRUPOS DE ALIMENTOS',
+        desc: 'Los distintos grupos aportan cosas diferentes. La variedad ayuda a combinar alimentos sin convertir la comida en una lista rígida.',
+        say: '“Los alimentos hacen trabajos diferentes en nuestro cuerpo.”',
+        together: 'Elijan tres alimentos y observen si pertenecen al mismo grupo o a grupos diferentes.'
+      },
+      {
+        n: '04',
+        title: 'PORCIONES Y CANTIDADES',
+        desc: 'Las porciones sirven como una referencia para comprender cantidades; no significan que todas las personas tengan que comer exactamente lo mismo.',
+        say: '“A veces necesitamos poquito y otras veces un poco más.”',
+        together: 'Busquen juntos dónde aparece la porción en un envase.'
+      },
+      {
+        n: '05',
+        title: 'LEER ETIQUETAS Y COMPARAR',
+        desc: 'Las etiquetas ofrecen información que puede ayudarnos a observar diferencias entre productos.',
+        say: '“La etiqueta es como la tarjeta de información del alimento.”',
+        together: 'Busquen cantidad, sellos e ingredientes.'
+      },
+      {
+        n: '06',
+        title: 'BEBIDAS E HIDRATACIÓN',
+        desc: 'El agua simple puede ser el punto de partida para la hidratación cotidiana. Las etiquetas ayudan a comprender mejor otras bebidas.',
+        say: '“Cuando tenemos sed, podemos empezar por agua.”',
+        together: 'Comparen dos bebidas y encuentren una diferencia.'
+      },
+      {
+        n: '07',
+        title: 'COLACIONES Y LUNCHES',
+        desc: 'Pueden adaptarse al tiempo, traslado, disponibilidad y preferencias de cada familia.',
+        say: '“Vamos a elegir algo que podamos llevar y que también te guste.”',
+        together: 'Elijan entre dos opciones disponibles.'
+      },
+      {
+        n: '08',
+        title: 'HAMBRE Y SACIEDAD',
+        desc: 'Reconocer sensaciones también forma parte de aprender a comer.',
+        say: '“Tu cuerpo puede avisarte cuándo tienes hambre y cuándo ya estás satisfecho.”',
+        together: 'Pregunta: “¿Todavía tienes hambre o ya te sientes satisfecho?”'
+      },
+      {
+        n: '09',
+        title: 'MOVIMIENTO',
+        desc: 'Moverse no significa solamente hacer ejercicio. Jugar, caminar y bailar también son formas de movimiento.',
+        say: '“Mover nuestro cuerpo también puede ser jugar.”',
+        together: 'Elijan una canción y muévanse juntos.'
+      },
+      {
+        n: '10',
+        title: 'DECIDIR CON LO QUE TIENES',
+        desc: 'Una decisión cambia según tiempo, presupuesto, disponibilidad y preferencias.',
+        say: '“Hoy tenemos estas opciones. ¿Cuál nos funciona mejor?”',
+        together: 'Elijan entre dos posibilidades y expliquen por qué.'
+      },
+      {
+        n: '11',
+        title: 'DÍAS COMPLICADOS',
+        desc: 'Hay días donde resolver algo posible importa más que seguir el plan original.',
+        say: '“Hoy es un día diferente. Vamos a encontrar algo que nos funcione.”',
+        together: 'Elijan qué importa más hoy: tiempo, facilidad, disponibilidad o llevar algo fuera de casa.'
+      }
     ],
-    closing: {
-      title: 'Para recordar',
-      text: 'Decidir con claridad no es tener todas las respuestas, sino contar con criterios para elegir lo que mejor se adapta a tu realidad.'
-    }
+
+    final: {
+      title: 'Llévate la guía contigo',
+      text: 'Consulta estas ideas fuera de la página, compártelas en familia o vuelve a ellas cuando necesites resolver una situación cotidiana.',
+      ctaLabel: 'DESCARGAR “CLARIDAD PARA ENTENDER” ↓',
+      pendingLabel: 'PDF próximamente',
+      pdf: null,
+      meta: 'PDF · para celular e impresión',
+      sourcesLink: 'Ver fuentes utilizadas'
+    },
+
+    sources: (window.ITASO_sources ? window.ITASO_sources([
+      'nom051',
+      'platoBienComer',
+      'imssNutrition',
+      'dietaryGuidelines2025',
+      'foodLabeling',
+      'whoHealthyDiet',
+      'healthyChildrenEatingEnough',
+      'cdcHungerFullness'
+    ]) : [])
   };
 })();

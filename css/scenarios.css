@@ -57,63 +57,56 @@
 .recipe-source { margin: 22px 0 0; color: var(--text-subtle); font-size: 13px; line-height: 1.5; }
 .recipe-source a { color: var(--action); text-decoration: underline; text-underline-offset: 3px; }
 
-/* ---------- Recursos y guías ---------- */
-.guide-card { display: flex; flex-direction: column; align-items: flex-start; }
+/* ---------- Recursos y guías: página (una sola guía) ---------- */
+.guide-card { display: flex; flex-direction: column; align-items: flex-start; max-width: 880px; }
 .guide-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; }
 .guide-card h2 { margin: 22px 0 12px; }
-.guide-card .lead { margin: 0 0 20px; }
-.guide-includes { margin: 0 0 24px; padding-left: 20px; display: grid; gap: 8px; }
-.guide-includes li { color: var(--text-secondary); }
-.guide-contents { margin-top: 56px; padding-top: 44px; border-top: 1px solid var(--line); }
-.guide-contents .eyebrow { color: var(--itaso-orange); }
-.guide-contents h2 { margin: 8px 0 10px; }
-.guide-contents p.muted { margin: 0 0 24px; }
-.guide-contents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-.guide-section {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 20px;
-  text-align: left;
-  border: 1.5px solid var(--line);
-  border-radius: 16px;
-  background: var(--white);
-  color: var(--ink);
-  cursor: pointer;
-  transition: border-color .18s ease, background-color .18s ease;
-}
-.guide-section:hover,
-.guide-section:focus-visible { border-color: var(--itaso-orange); background: var(--itaso-orange-soft); }
-.guide-section span { color: var(--itaso-orange); font-size: 15px; font-weight: 850; letter-spacing: .04em; }
-.guide-section strong { font-size: 15px; font-weight: 720; line-height: 1.25; }
+.guide-card .lead { margin: 0 0 14px; }
+.guide-card .muted { margin: 0 0 24px; }
 
-/* ---------- Guía dentro del modal ---------- */
-.guide-sections { margin-top: 28px; }
-.guide-section-list { display: grid; gap: 12px; margin-top: 14px; }
-.guide-section-block {
-  padding: 20px;
+/* ---------- Guía: modal experiencia (estilo ficha "Porciones") ---------- */
+.guide-how-hero .guide-how-number {
+  display: block;
+  color: var(--modal-accent);
+  font-size: clamp(70px, 8.5vw, 116px);
+  font-weight: 780;
+  line-height: .84;
+  letter-spacing: -.05em;
+}
+.guide-how-list {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 16px 0 0;
+  border-top: 1.5px solid color-mix(in srgb, var(--modal-accent) 30%, transparent);
   display: grid;
-  grid-template-columns: 46px 1fr;
-  gap: 16px;
-  border: 1.5px solid var(--itaso-orange);
+  gap: 12px;
+}
+.guide-how-list li { display: grid; gap: 3px; }
+.guide-how-list strong { color: var(--modal-accent); font-size: 12px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+.guide-how-list span { color: #263240; font-size: 13px; font-weight: 540; line-height: 1.42; }
+
+.guide-block .guide-block-desc { margin-top: 7px; }
+.guide-block .guide-block-line { margin: 9px 0 0; color: #263240; font-size: 13.5px; font-weight: 620; line-height: 1.45; }
+.guide-block-label { color: var(--itaso-orange); font-weight: 850; }
+
+.guide-final {
+  margin-top: 30px;
+  padding: 26px 28px;
+  border: 1.5px solid color-mix(in srgb, var(--itaso-orange) 42%, transparent);
   border-radius: 18px;
-  background: var(--white);
+  background: var(--itaso-orange-soft);
 }
-.guide-section-block > span {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #ffd6c2;
-  color: var(--itaso-orange);
-  font-size: 12px;
-  font-weight: 850;
+.guide-final h3 { margin: 0 0 10px; font-size: clamp(24px, 2.6vw, 34px); }
+.guide-final .guide-final-text { margin: 0; color: #3a2a20; font-size: 15px; line-height: 1.5; }
+.guide-final-actions { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.guide-download-pending { opacity: .7; cursor: not-allowed; }
+.guide-final .guide-final-meta { color: var(--text-subtle); font-size: 13px; font-weight: 700; }
+.guide-final-link { margin: 16px 0 0; }
+.guide-final-link a { color: var(--action); font-weight: 750; text-decoration: underline; text-underline-offset: 4px; }
+
+@media (min-width: 981px) {
+  .guide-how { position: sticky; top: 0; align-self: start; }
 }
-.guide-section-block h4 { margin: 0; font-size: 20px; font-weight: 760; letter-spacing: -.025em; }
-.guide-section-block p { max-width: 680px; margin: 7px 0 0; color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
-.guide-source-group { margin-top: 16px; }
-.guide-source-theme { margin: 0 0 8px; color: var(--itaso-orange); font-size: 12px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
@@ -121,7 +114,6 @@
 }
 @media (max-width: 679px) {
   .recipe-card { min-height: 280px; }
-  .guide-contents { margin-top: 40px; padding-top: 30px; }
-  .guide-section-block { grid-template-columns: 1fr; gap: 8px; }
-  .guide-section-block span { width: 32px; height: 32px; }
+  .guide-final { padding: 22px 20px; }
+  .guide-final-actions .button { width: 100%; justify-content: center; }
 }

@@ -71,15 +71,38 @@
   }
 
   function renderGuide(g) {
-    const groups = window.ITASO_SOURCES || [];
-    const intro = [g.intro, g.intro2, g.intro3].filter(Boolean).map(p => `<p class="resource-intro">${esc(p)}</p>`).join('');
-    const includes = g.includes && g.includes.length
-      ? `<section class="cg-detail"><h3 class="cg-detail-title">Qué incluye</h3><ul class="cg-detail-list">${g.includes.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>`
-      : '';
-    const sections = `<section class="guide-sections"><h3 class="cg-detail-title">${esc(g.title)}</h3><div class="guide-section-list">${g.sections.map(s => `<article class="guide-section-block"><span>${esc(s.n)}</span><div><h4>${esc(s.title)}</h4><p>${esc(s.text)}</p></div></article>`).join('')}</div></section>`;
-    const remember = g.closing ? `<aside class="resource-remember"><span>PARA RECORDAR</span><p>${esc(g.closing.text)}</p></aside>` : '';
-    const sources = `<section class="resource-sources" aria-labelledby="caregiver-sources-label"><p class="resource-fact-label" id="caregiver-sources-label">Fuentes consultadas</p>${groups.map(gr => `<div class="guide-source-group"><p class="guide-source-theme">${esc(gr.theme)}</p>${sourceList(gr.sources)}</div>`).join('')}</section>`;
-    return `${intro}${includes}${sections}${remember}${sources}`;
+    const intro = g.intro ? `<p class="resource-intro">${esc(g.intro)}</p>` : '';
+    const how = g.how ? `<aside class="resource-modal-highlight guide-how" aria-labelledby="guide-how-label">
+      <p class="resource-fact-label" id="guide-how-label">${esc(g.how.label)}</p>
+      <div class="resource-key-visual guide-how-hero"><span class="guide-how-number">${esc(g.how.hero)}</span></div>
+      <div class="resource-chips" aria-label="Cómo funciona la guía">${g.how.chips.map(c => `<span>${esc(c)}</span>`).join('')}</div>
+      <ul class="guide-how-list">${g.how.items.map(it => `<li><strong>${esc(it.label)}</strong><span>${esc(it.text)}</span></li>`).join('')}</ul>
+    </aside>` : '';
+    const contents = `<section class="resource-important" aria-labelledby="guide-contents-title">
+      <h3 id="guide-contents-title">${esc(g.contentsTitle || 'Contenidos de la guía')}</h3>
+      <div class="resource-information">${g.sections.map(s => `<article class="information-block guide-block">
+        <span>${esc(s.n)}</span>
+        <div>
+          <h4>${esc(s.title)}</h4>
+          <p class="guide-block-desc">${esc(s.desc)}</p>
+          <p class="guide-block-line"><span class="guide-block-label">Díselo así:</span> ${esc(s.say)}</p>
+          <p class="guide-block-line"><span class="guide-block-label">Háganlo juntos:</span> ${esc(s.together)}</p>
+        </div>
+      </article>`).join('')}</div>
+    </section>`;
+    const final = `<section class="guide-final" aria-labelledby="guide-final-title">
+      <h3 id="guide-final-title">${esc(g.final.title)}</h3>
+      <p class="guide-final-text">${esc(g.final.text)}</p>
+      <div class="guide-final-actions">
+        ${g.final.pdf
+          ? `<a class="resource-cta-link" href="${esc(g.final.pdf)}" download>${esc(g.final.ctaLabel)}</a>`
+          : `<button class="resource-cta-link guide-download-pending" type="button" disabled aria-disabled="true">${esc(g.final.pendingLabel)}</button>`}
+        <span class="guide-final-meta">${esc(g.final.meta)}</span>
+      </div>
+      <p class="guide-final-link"><a href="#/cuidadores/recursos" data-guide-sources>${esc(g.final.sourcesLink)} →</a></p>
+    </section>`;
+    const sources = `<section class="resource-sources" id="guide-sources" aria-labelledby="guide-sources-label"><p class="resource-fact-label" id="guide-sources-label">Fuentes consultadas</p>${sourceList(g.sources)}</section>`;
+    return `${intro}<div class="resource-learning-grid">${how}${contents}</div>${final}${sources}`;
   }
 
   window.Caregiver = {
@@ -101,7 +124,7 @@
       const data = window.ITASO_GUIDE;
       if (!data) return;
       dialog.setAttribute('data-modal-accent', data.accent || 'orange');
-      document.querySelector('#caregiver-modal-kicker').textContent = `${data.type} · ${data.time}`;
+      document.querySelector('#caregiver-modal-kicker').textContent = data.kicker || 'Recursos y guías';
       document.querySelector('#caregiver-modal-title').textContent = data.title || '';
       document.querySelector('#caregiver-modal-description').textContent = data.subtitle || '';
       document.querySelector('#caregiver-modal-body').innerHTML = renderGuide(data);
@@ -126,6 +149,12 @@
     if (topic) { window.Caregiver.openTopic(topic.dataset.caregiverTopic); return; }
     if (event.target.closest('[data-open-guide]')) { window.Caregiver.openGuide(); return; }
     if (modal.hidden) return;
+    const sourcesLink = event.target.closest('[data-guide-sources]');
+    if (sourcesLink) {
+      event.preventDefault();
+      document.querySelector('#guide-sources')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
     if (event.target.closest('[data-caregiver-cta]')) { window.Caregiver.close(); return; }
     if (event.target.closest('[data-close-caregiver]') || event.target === modal) window.Caregiver.close();
   });
