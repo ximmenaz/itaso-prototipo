@@ -27,7 +27,6 @@
 .cg-topics { border-top:1px solid var(--line); }
 .cg-grid-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
 .cg-topics .cg-card { min-height:280px; }
-.cg-footer .cg-wordmark { font-size:32px; font-weight:760; color:var(--action); }
 body:has(.caregiver-menu) > .audience-trigger { display:none; }
 @media(max-width:1099px) { .cg-grid { gap:20px; } .cg-card { padding:24px; } }
 @media(max-width:980px) { .cg-hero { grid-template-columns:1fr; gap:40px; padding-top:56px; } .cg-photo { max-width:590px; margin:auto; } }

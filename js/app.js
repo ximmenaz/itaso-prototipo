@@ -30,9 +30,11 @@
   const esc = value => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const page = (content, shell = '') => `<div class="page ${shell}">${content}</div>`;
   const { head, menuCard, icon, wave, photoCard, footer } = ITASO_UI;
+  // El footer del Home se reutiliza en todo el recorrido adulto (Inicio y Cuidadores).
+  const adultFooter = path => path === '/inicio' || path.startsWith('/cuidadores') ? ITASO_UI.landingFooter() : footer();
 
   function render(content, shell = '') {
-    app.innerHTML = page(content + (shell === 'landing-page' || shell === 'caregiver-menu' ? '' : footer()), shell);
+    app.innerHTML = page(content + adultFooter(Router.current()), shell);
     if (!inVisualGallery) app.focus({ preventScroll: true });
     window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     updateNav();
@@ -93,7 +95,7 @@
   }
 
   function landing() {
-    render(ITASO_LANDING.markup(), 'landing-page');
+    render(ITASO_LANDING.markup() + ITASO_UI.landingFooter(), 'landing-page');
   }
 
   function nnaEntry() {
@@ -215,7 +217,7 @@
 
   function caregiverMenu() {
     const tool = (title, description, route, type, glyph) => `<button class="cg-card cg-${type}" type="button" data-route="${route}"><span class="cg-icon">${icon(glyph)}</span><h2>${title}</h2><p>${description}</p><span class="cg-explore">Explorar ${icon('arrow')}</span><svg class="cg-corner" viewBox="0 0 200 130" preserveAspectRatio="none" aria-hidden="true"><path d="M0 130C35 65 120 40 200 0v130Z"/></svg></button>`;
-    render(`<section class="cg-hero cg-container"><div class="cg-copy"><p class="breadcrumb"><a href="#/inicio">Inicio</a> / Cuidadores</p><p class="cg-label">Cuidadores</p><h1>¿Qué necesitas hoy?</h1><p class="cg-lead">Herramientas prácticas que consideran tiempo,<br> presupuesto, disponibilidad y preferencias.</p></div><div class="cg-media"><img class="cg-photo" src="assets/identity/itaso_landing_editable-1.png" alt="Una madre abraza a su hija" width="526" height="521"></div></section><svg class="cg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22C340-50 530 100 800 38S1160-4 1440 58v62H0Z"/></svg><section class="cg-tools cg-container"><p class="cg-label">Herramientas</p><div class="cg-grid">${tool('Recursos y guías','Guías y materiales.','/cuidadores/recursos','orange','book')}${tool('Decide con lo que tienes','No necesitas una comida perfecta. Empecemos por lo que quieres resolver hoy.','/cuidadores/decide-con-lo-que-tienes','green','choice')}${tool('Recetas','Ideas posibles.','/cuidadores/recetas','blue','plate')}</div><button class="cg-gate" type="button" data-open-audience>¿Quién está usando la página? ${icon('arrow')}</button></section><section class="cg-topics cg-container"><p class="cg-label">Temas</p><div class="cg-grid cg-grid-two">${tool('Alimentación','Explora cinco subtemas.','/cuidadores/alimentacion','red','leaf')}${tool('Actividad física y sedentarismo','Encuentra una actividad según tu contexto.','/cuidadores/actividad','green','move')}</div></section><footer class="cg-footer cg-container"><a href="#/inicio" class="cg-wordmark">Itaso</a><span>© ITASO-MX · Prototipo</span><a href="#/inicio">Volver al inicio</a></footer>`, 'caregiver-menu');
+    render(`<section class="cg-hero cg-container"><div class="cg-copy"><p class="breadcrumb"><a href="#/inicio">Inicio</a> / Cuidadores</p><p class="cg-label">Cuidadores</p><h1>¿Qué necesitas hoy?</h1><p class="cg-lead">Herramientas prácticas que consideran tiempo,<br> presupuesto, disponibilidad y preferencias.</p></div><div class="cg-media"><img class="cg-photo" src="assets/identity/itaso_landing_editable-1.png" alt="Una madre abraza a su hija" width="526" height="521"></div></section><svg class="cg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22C340-50 530 100 800 38S1160-4 1440 58v62H0Z"/></svg><section class="cg-tools cg-container"><p class="cg-label">Herramientas</p><div class="cg-grid">${tool('Recursos y guías','Guías y materiales.','/cuidadores/recursos','orange','book')}${tool('Decide con lo que tienes','No necesitas una comida perfecta. Empecemos por lo que quieres resolver hoy.','/cuidadores/decide-con-lo-que-tienes','green','choice')}${tool('Recetas','Ideas posibles.','/cuidadores/recetas','blue','plate')}</div><button class="cg-gate" type="button" data-open-audience>¿Quién está usando la página? ${icon('arrow')}</button></section><section class="cg-topics cg-container"><p class="cg-label">Temas</p><div class="cg-grid cg-grid-two">${tool('Alimentación','Explora cinco subtemas.','/cuidadores/alimentacion','red','leaf')}${tool('Actividad física y sedentarismo','Encuentra una actividad según tu contexto.','/cuidadores/actividad','green','move')}</div></section>${ITASO_UI.landingFooter()}`, 'caregiver-menu');
   }
 
   function decideWithWhatYouHave() { decisionExperience(render, head); }

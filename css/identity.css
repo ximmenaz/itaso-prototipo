@@ -94,10 +94,10 @@ input[type="text"],select { border-color:#b9c1ca; border-radius:12px; min-height
 .resource-art { min-height:125px; display:flex; align-items:center; margin-bottom:20px; background:var(--paper); border-radius:18px; padding:24px; }
 .resource-art .itaso-icon { width:45px; height:45px; color:var(--action); }
 /* Quiet footer, following the reference secondary footer */
-.site-footer,.lp-footer,.cg-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; min-height:132px; padding-block:32px; margin-top:48px; border-top:1px solid rgba(16,24,40,.08); color:var(--text-secondary); background:white; font:520 15px/1.55 var(--font-body); }
+.site-footer,.lp-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; min-height:132px; padding-block:32px; margin-top:48px; border-top:1px solid rgba(16,24,40,.08); color:var(--text-secondary); background:white; font:520 15px/1.55 var(--font-body); }
 .site-footer { padding-bottom:100px; }
-.site-footer a,.lp-footer a,.cg-footer a { text-decoration:none; }
-.site-footer a:hover,.lp-footer a:hover,.cg-footer a:hover { color:var(--ink); }
+.site-footer a,.lp-footer a { text-decoration:none; }
+.site-footer a:hover,.lp-footer a:hover { color:var(--ink); }
 /* Responsive */
 @media(max-width:1099px) { .grid { gap:20px; } .grid.four { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:980px) {
@@ -122,5 +122,5 @@ input[type="text"],select { border-color:#b9c1ca; border-radius:12px; min-height
  .decision-foods { grid-template-columns:1fr; }
  .avatar-options[data-avatar-panel="expression"] { grid-template-columns:repeat(3,minmax(0,1fr)); }
  .button-row .button { max-width:100%; flex-grow:1; min-height:54px; }
- .site-footer,.lp-footer,.cg-footer { flex-direction:column; text-align:center; }
+ .site-footer,.lp-footer { flex-direction:column; text-align:center; }
 }
