@@ -39,6 +39,7 @@
     window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     updateNav();
     updateNnaAccess();
+    updateAudienceTrigger();
     nav.querySelectorAll('a').forEach(link => { if (link.getAttribute('href') === `#${Router.current()}`) link.setAttribute('aria-current', 'page'); });
   }
 
@@ -49,6 +50,19 @@
     if (!link) return;
     const path = Router.current();
     link.hidden = !(path === '/inicio' || path.startsWith('/cuidadores'));
+  }
+
+  function updateAudienceTrigger() {
+    const btn = document.querySelector('#audience-trigger');
+    if (!btn) return;
+    const path = Router.current();
+    if (path.startsWith('/cuidadores')) {
+      btn.setAttribute('hidden', '');
+      btn.style.display = 'none';
+    } else {
+      btn.removeAttribute('hidden');
+      btn.style.display = '';
+    }
   }
 
   function updateNav() {
@@ -218,6 +232,7 @@
   function caregiverMenu() {
     const tool = (title, description, route, type, glyph) => `<button class="cg-card cg-${type}" type="button" data-route="${route}"><span class="cg-icon">${icon(glyph)}</span><h2>${title}</h2><p>${description}</p><span class="cg-explore">Explorar ${icon('arrow')}</span><svg class="cg-corner" viewBox="0 0 200 130" preserveAspectRatio="none" aria-hidden="true"><path d="M0 130C35 65 120 40 200 0v130Z"/></svg></button>`;
     render(`<section class="cg-hero cg-container"><div class="cg-copy"><p class="breadcrumb"><a href="#/inicio">Inicio</a> / Cuidadores</p><p class="cg-label">Cuidadores</p><h1>¿Qué necesitas hoy?</h1><p class="cg-lead">Herramientas prácticas que consideran tiempo,<br> presupuesto, disponibilidad y preferencias.</p></div><div class="cg-media"><img class="cg-photo" src="assets/identity/itaso_landing_editable-1.png" alt="Una madre abraza a su hija" width="526" height="521"></div></section><svg class="lp-wave lp-wave--blue" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 28C220-16 378 70 606 38c250-37 432 37 630-9 95-23 159-16 204 1v70H0Z"/></svg><section class="cg-tools cg-container"><p class="cg-label">Herramientas</p><div class="cg-grid">${tool('Recursos y guías','Guías y materiales.','/cuidadores/recursos','orange','book')}${tool('Decide con lo que tienes','No necesitas una comida perfecta. Empecemos por lo que quieres resolver hoy.','/cuidadores/decide-con-lo-que-tienes','green','choice')}${tool('Recetas','Ideas posibles.','/cuidadores/recetas','blue','plate')}</div></section><section class="cg-topics cg-container"><p class="cg-label">Temas</p><div class="cg-grid cg-grid-two">${tool('Alimentación','Explora cinco subtemas.','/cuidadores/alimentacion','red','leaf')}${tool('Actividad física y sedentarismo','Encuentra una actividad según tu contexto.','/cuidadores/actividad','green','move')}</div></section>`, 'caregiver-menu');
+    updateAudienceTrigger();
   }
 
   function decideWithWhatYouHave() { decisionExperience(render, head); }
